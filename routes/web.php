@@ -15,3 +15,4 @@
 Route::resource('categorias','CategoriaController');
 Route::resource('proveedores','ProveedorController');
 Route::resource('compras','CompraController');
+Route::resource('productos','ProductoController');
