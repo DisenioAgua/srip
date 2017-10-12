@@ -16,3 +16,5 @@ Route::resource('categorias','CategoriaController');
 Route::resource('proveedores','ProveedorController');
 Route::resource('compras','CompraController');
 Route::resource('productos','ProductoController');
+Route::resource('users','UserController');
+Route::resource('users','UserController');

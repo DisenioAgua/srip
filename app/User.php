@@ -14,9 +14,17 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['nombre', 'apellido', 'direccion','telefono','dui','foto','name','email','password','acceso','sexo'];
+
+    public static function buscar($nombre){
+      return User::nombre($nombre)->orderBy('apellido')->paginate(8);
+    }
+
+    public function scopeNombre($query, $nombre){
+      if(trim($nombre)!=""){
+        $query->where('nombre', 'ilike','%'.$nombre.'%')->orWhere('apellido','ilike','%'.$nombre.'%');
+      }
+    }
 
     /**
      * The attributes that should be hidden for arrays.
