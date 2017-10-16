@@ -1,4 +1,4 @@
-{{-- @if (Auth::check()) --}}
+@if (Auth::check())
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +36,18 @@
 </head>
 
 <body class="nav-md">
+  @if(Session::has('mensaje'))
+
+<?php $men=Session::pull('mensaje');
+echo "<script>swal('$men', 'Click al botón!', 'success')</script>";?>
+@endif
+
+@if(Session::has('error'))
+
+<?php $men=Session::pull('error');
+echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
+
+@endif
 
   <div class="container body">
     <div class="main_container">
@@ -115,11 +127,11 @@
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <?php
-                  // $url="/imagenes/".(String)Auth::user()->foto;
+                  $url="/imagenes/".(String)Auth::user()->foto;
                   ?>
-                  {{-- {!! Html::image($url)!!}
+                  {!! Html::image($url)!!}
                   {{Auth::user()->name}}
-                  <span class=" fa fa-angle-down"></span> --}}
+                  <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="javascript:;"> Perfil de usuario</a></li>
@@ -202,15 +214,15 @@
 
 </body>
 </html>
-{{-- @else
+@else
   <!DOCTYPE HTML>
   <!DOCTYPE html>
   <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta http-equiv="refresh" content="0; URL=/fjj/public">
+      <meta http-equiv="refresh" content="0; URL=/srip/public">
     </head>
     <body>
     </body>
   </html>
-@endif --}}
+@endif

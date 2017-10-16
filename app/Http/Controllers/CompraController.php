@@ -10,7 +10,7 @@ use App\Proveedor;
 use Redirect;
 use App\Producto;
 use App\DetalleCompra;
-
+use App\Bitacora;
 
 class CompraController extends Controller
 {
@@ -55,7 +55,8 @@ class CompraController extends Controller
           $detalle_compra->precio=$request->precio[$c];
           $detalle_compra->save();
         }
-      }
+      }num_factura
+      Bitacora::bitacora("Registro de nueva compra n° de factura: " .$request->num_factura);
       return redirect('/compras');
     }
 
