@@ -26,7 +26,7 @@ class ProveedorRequest extends FormRequest
       return [
           //
           'nombre'=>'required | min:4 | max:20 | unique:proveedors',
-          'direccion'=>'required | min:10 | max:50 | unique:proveedors',
+          'direccion'=>'required | min:10 | max:20 | unique:proveedors',
           'telefono'=>'required | size:9 | unique:proveedors',
           'nit'=> 'required | size:17 | unique:proveedors',
       ];
@@ -35,19 +35,21 @@ class ProveedorRequest extends FormRequest
 
       return [
         'nombre.required'=>'El campo Nombre es obligatorio',
-        'nombre.size'=>'El Nombre debe tener 6 caracteres',
+        'nombre.min'=>'El Nombre debe tener minimo 4 caracteres',
+        'nombre.max'=>'El Nombre debe tener máximo 20 caracteres',
         'nombre.unique'=>'Nombre ya ha sido registrado',
 
         'direccion.required'=>'El campo dirección es obligatorio',
-        'direccion.size'=>'El dirección debe tener 10 caracteres',
-        'direccion.unique'=>'dirección ya ha sido registrado',
+        'direccion.min'=>'La dirección debe tener minimo 10 caracteres',
+        'direccion.max'=>'La dirección debe tener maximo 20 caracteres',
+        'direccion.unique'=>'La dirección ya ha sido registrado',
 
         'telefono.required'=>'El campo Teléfono es obligatorio',
         'telefono.size'=>'El campo Teléfono debe tener 9 caracteres',
         'telefono.unique'=>'El campo Teléfono ya ha sido registrado',
 
         'nit.required'=>'El campo NIT es obligatorio',
-        'nit.size'=>'El campo NIT debe tener 9 caracteres',
+        'nit.size'=>'El campo NIT debe tener 17 caracteres',
         'nit.unique'=>'El campo NIT ya ha sido registrado',
 
       ];

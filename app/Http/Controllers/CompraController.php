@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Compra; //para poder usar el modelo
 use App\Proveedor;
 use Redirect;
+use App\Producto;
+use App\DetalleCompra;
 
 
 class CompraController extends Controller
@@ -42,7 +44,19 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $compra= Compra::create($request->All());
+      if(isset($request->codigo)){
+        foreach ($request->codigo as $c => $com) {
+          $detalle_compra = new DetalleCompra;
+          $detalle_compra->compra_id=$compra->id;
+          $producto = Producto::where('codigo',$request->codigo[$c])->first();
+          $detalle_compra->producto_id=$producto->id;
+          $detalle_compra->cantidad=$request->cantidad[$c];
+          $detalle_compra->precio=$request->precio[$c];
+          $detalle_compra->save();
+        }
+      }
+      return redirect('/compras');
     }
 
     /**

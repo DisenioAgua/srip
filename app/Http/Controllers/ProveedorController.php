@@ -86,11 +86,13 @@ class ProveedorController extends Controller
     {
         //
         $men['nombre.required']='El campo Nombre es obligatorio';
-        $men['nombre.size']='El Nombre debe tener 6 caracteres';
+        $men['nombre.min']='El Nombre debe tener minimo 4 caracteres';
+        $men['nombre.max']='El Nombre debe tener maximo 20 caracteres';
         $men['nombre.unique']='Nombre ya ha sido registrado';
 
         $men['direccion.required']='El campo dirección es obligatorio';
-        $men['direccion.size']='El dirección debe tener 10 caracteres';
+        $men['direccion.min']='La dirección debe tener minimo 10 caracteres';
+        $men['direccion.max']='La dirección debe tener maximo 20 caracteres';
         $men['direccion.unique']='dirección ya ha sido registrado';
 
         $men['telefono.required']='El campo Teléfono es obligatorio';
@@ -98,7 +100,7 @@ class ProveedorController extends Controller
         $men['telefono.unique']='El campo Teléfono ya ha sido registrado';
 
         $men['nit.required']='El campo NIT es obligatorio';
-        $men['nit.size']='El campo NIT debe tener 9 caracteres';
+        $men['nit.size']='El campo NIT debe tener 17 caracteres';
         $men['nit.unique']='El campo NIT ya ha sido registrado';
 
          $v1=$v2=$v3=$v4=0;
@@ -111,7 +113,7 @@ class ProveedorController extends Controller
         if ($request['direccion']==$proveedores['direccion']) {
           $v2=1;
         }else{
-            $val['direccion']='required | min:10 | max:50 | unique:proveedors';
+            $val['direccion']='required | min:10 | max:20 | unique:proveedors';
         }
         if ($request['telefono']==$proveedores['telefono']) {
           $v3=1;

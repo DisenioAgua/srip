@@ -74,6 +74,7 @@
                                     <th>Nombre</th>
                                     <th>Cantidad</th>
                                     <th>Precio</th>
+                                    <th>Precio Total</th>
                                     <th>Accion</th>
                                 </tr>
                             </thead>

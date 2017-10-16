@@ -94,11 +94,33 @@ class CategoriaController extends Controller
         $men['descripcion.max']='El Descripcion debe tener máximo 20  caracteres';
         $men['descripcion.unique']='El Descripcion ya ha sido registrado';
 
+        $v1=0;
+        $v2=0;
+
         $categorias = Categoria::find($id);
+        if ($categorias['nombre']==$request['nombre']) {
+          $validar['nombre']='required | min:4 | max:20';
+          $v1=1;
+        }
+        else {
+            $validar['nombre']='required | min:4 | max:20 | unique:categorias';
+        }
+        if ($categorias['descripcion']==$request['descripcion']) {
+          $validar['descripcion']='required | min:10 | max:20';
+          $v2=1;
+        }
+        else {
+            $validar['descripcion']='required | min:10 | max:20 | unique:categorias';
+        }
+        if ($v1==1 && $v2==1) {
+            return redirect('/categorias')->with('mensaje','No hay cambios');
+        } else {
         $categorias->fill($request->all());
+        $this->validate($request,$validar,$men);
         $categorias->save();
         Bitacora::bitacora("Modificación de categoria: " .$request->nombre);
         return redirect('/categorias')->with('mensaje','Hecho');
+      }
     }
 
     /**

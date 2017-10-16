@@ -13,16 +13,15 @@ $(document).ready(function(){
       var subtotal=parseFloat(precio)*parseFloat(cantidad);
     $(tabla).append(
       "<tr data-codigo='"+codigoprodc+"' data-nomprod='"+nombreproducto+"' data-cantidad='"+cantidad+"' data-precio='"+precio+"' >"+
-      "<td>"+codigoprodc+"</td>"+
+      "<td><input type='hidden' name='codigo[]' value = '"+codigoprodc+"'/>"+codigoprodc+"</td>"+
       "<td>"+nombreproducto+"</td>"+
-      "<td>"+cantidad+"</td>"+
-      "<td>"+precio+"</td>"+
+      "<td><input type='hidden' name='cantidad[]' value = '"+cantidad+"'/>"+cantidad+"</td>"+
       "<td> <button id='btneliminar' class='btn-group btn btn-danger btn-xs'></button></td>"+
       "</tr>"
     );
     totalcompra+=parseFloat(precio)*parseFloat(cantidad);
     //alert(totalcompra);
-    $("#ltotal").text(totalcompra);
+    $("#ltotal").val(totalcompra);
     }
     else{
         return swal("Error","Debe seleccionar un producto!","error");
