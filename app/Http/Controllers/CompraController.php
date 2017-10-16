@@ -103,4 +103,13 @@ class CompraController extends Controller
     {
         //
     }
+    public function nombreProducto($id){
+      $producto=Producto::where('codigo',$id)->first();
+      if($producto!=null){
+
+        return $producto->nombre;
+      }else{
+        return "El producto no existe";
+      }
+    }
 }

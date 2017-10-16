@@ -35,4 +35,15 @@ $(document).ready(function(){
     alert(totalcompra);
     tr.remove();
   });
+  $("#lcodigo").keyup(function(e){
+      var char= event.which || event.keyCode;
+      var producto=$("#lcodigo").val();
+      //if(char==13){
+      var codigonombre=$("#lproducto");
+      var ruta="/fjj/public/nombredelproducto/"+producto;
+      $.get(ruta,function(res){
+        codigonombre.val(res);
+      });
+
+    });
 });

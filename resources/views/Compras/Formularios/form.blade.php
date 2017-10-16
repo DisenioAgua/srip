@@ -13,7 +13,7 @@
 
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
       <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-      {!! Form::date('fecha_compra',null,['class'=>'form-control has-feedback-left'])!!}
+      {!! Form::date('fecha_compra',$hoy,['max'=>$hoy->format('Y-m-d'),'class'=>'form-control has-feedback-left'])!!}
     </div>
 
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -45,11 +45,11 @@
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
         <span class="fa fa-plus-square-o form-control-feedback left" aria-hidden="true"></span>
-        {!! Form::number('cantidad',null,['id'=>'lcantidad','class'=>'form-control has-feedback-left','placeholder'=>'Cantidad'])!!}
+        {!! Form::number('cantidad',1,['min'=>1,'id'=>'lcantidad','class'=>'form-control has-feedback-left','placeholder'=>'Cantidad'])!!}
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
         <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
-        {!! Form::number('precio',null,[ 'id'=>'lprecio','class'=>'form-control has-feedback-left','placeholder'=>'Precio'])!!}
+         {!! Form::number('precio',0.00,['min'=>0.00,'step'=>0.05,'id'=>'lprecio','class'=>'form-control has-feedback-left','placeholder'=>'Precio'])!!}
       </div>
     </div>
     <center>

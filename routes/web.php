@@ -45,3 +45,5 @@ Route::match(['get','post'],'destroyCategoria/{id}','CategoriaController@destroy
 Route::match(['get','post'],'destroyProducto/{id}','ProductoController@destroy');
 Route::match(['get','post'],'destroyCompra/{id}','CompraController@destroy');
 Route::match(['get','post'],'destroyUser/{id}','UserController@destroy');
+
+Route::match(['get','post'],'/nombredelproducto/{id}','CompraController@nombreProducto');
