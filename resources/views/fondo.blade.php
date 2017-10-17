@@ -82,7 +82,11 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                   <ul class="nav child_menu">
                     <li><a href="form.html">Pagos</a></li>
                   </ul>
-                  <li><a href={!! asset('/compras/create')!!}><i class="fa fa-shopping-cart"></i> Compra</span></a>
+                  <li><a><i class="fa fa-shopping-cart"></i> Compra<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={!! asset('/compras/create')!!}>Compras</a></li>
+                      <li><a href={!! asset('/compras')!!}>Mostrar Compras</a></li>
+                      </ul>
                   </li>
                   <li><a href={!! asset('/productos')!!}><i class="fa fa-cubes"></i> Produto</span></a>
                   </li>

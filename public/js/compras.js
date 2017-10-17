@@ -16,6 +16,8 @@ $(document).ready(function(){
       "<td><input type='hidden' name='codigo[]' value = '"+codigoprodc+"'/>"+codigoprodc+"</td>"+
       "<td>"+nombreproducto+"</td>"+
       "<td><input type='hidden' name='cantidad[]' value = '"+cantidad+"'/>"+cantidad+"</td>"+
+      "<td><input type='hidden' name='precio[]' value = '"+precio+"'/>"+precio+"</td>"+
+      "<td>"+subtotal+"</td>"+
       "<td> <button id='btneliminar' class='btn-group btn btn-danger btn-xs'></button></td>"+
       "</tr>"
     );
@@ -32,18 +34,17 @@ $(document).ready(function(){
     var tc=totalcompra;
     var totalfila=parseFloat($(this).parents('tr').find('td:eq(2)').text()) * parseFloat($(this).parents('tr').find('td:eq(3)').text());
     totalcompra=tc-totalfila;
-    alert(totalcompra);
     tr.remove();
   });
   $("#lcodigo").keyup(function(e){
-      var char= event.which || event.keyCode;
-      var producto=$("#lcodigo").val();
-      //if(char==13){
-      var codigonombre=$("#lproducto");
-      var ruta="/fjj/public/nombredelproducto/"+producto;
-      $.get(ruta,function(res){
-        codigonombre.val(res);
-      });
-
+    var char= event.which || event.keyCode;
+    var producto=$("#lcodigo").val();
+    //if(char==13){
+    var codigonombre=$("#lproducto");
+    var ruta="/srip/public/nombredelproducto/"+producto;
+    $.get(ruta,function(res){
+      codigonombre.val(res);
     });
+
+  });
 });

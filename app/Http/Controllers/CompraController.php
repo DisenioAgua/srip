@@ -19,9 +19,11 @@ class CompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
+      $factura = $request->get('factura');
+      $compras = Compra::buscar($factura);
+      return view('Compras.index',compact('compras'));
     }
 
     /**
@@ -55,8 +57,8 @@ class CompraController extends Controller
           $detalle_compra->precio=$request->precio[$c];
           $detalle_compra->save();
         }
-      }num_factura
-      Bitacora::bitacora("Registro de nueva compra n° de factura: " .$request->num_factura);
+      }
+      // Bitacora::bitacora("Registro de nueva compra n° de factura: " .$request->num_factura);
       return redirect('/compras');
     }
 
@@ -68,7 +70,9 @@ class CompraController extends Controller
      */
     public function show($id)
     {
-        //
+        $compra = Compra::find($id);
+        $detalleCompras = DetalleCompra::where('compra_id',$id)->get();
+        return view('Compras.show',compact('compra','detalleCompras'));
     }
 
     /**

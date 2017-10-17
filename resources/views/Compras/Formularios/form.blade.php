@@ -10,7 +10,9 @@
 
 <div class="x_content">
   <div class="row">
-
+@php
+  $hoy = Carbon\Carbon::now();
+@endphp
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
       <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
       {!! Form::date('fecha_compra',$hoy,['max'=>$hoy->format('Y-m-d'),'class'=>'form-control has-feedback-left'])!!}

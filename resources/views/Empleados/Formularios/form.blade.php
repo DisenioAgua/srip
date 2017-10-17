@@ -135,7 +135,10 @@
       <div class="form-group col-md-6 col-sm-9 col-xs-12">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto:</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
-          {!! Form::file('archivo')!!}
+          {!! Form::file('archivo',['id'=>'archivo'])!!}
+          <output id= "foto">
+
+          </output>
         </div>
       </div>
     </div>
@@ -153,3 +156,24 @@
 <a href={!! asset('/users')!!} class="btn btn-default">Cancelar</a>
 </center>
 </div>
+
+<script type="text/javascript">
+  function foto(evt){
+    var files = evt.target.files;
+
+    for(var i = 0, f; f = files[i]; i++){
+      if(!f.type.match('image.*')){
+        continue;
+      }
+      var reader = new FileReader();
+
+      reader.onload = (function(theFile){
+        return function(e){
+          document.getElementById('foto').innerHTML = ['<img style="height: 200px" src = "', e.target.result,'"/>'].join('');
+        };
+      })(f);
+      reader.readAsDataURL(f);
+    }
+  }
+  document.getElementById('archivo').addEventListener('change', foto, false);
+</script>
