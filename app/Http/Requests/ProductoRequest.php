@@ -28,7 +28,7 @@ class ProductoRequest extends FormRequest
             'nombre'=>'required | min:4 | max:20 | unique:productos',
             'codigo'=>'required | size:6 | unique:productos',
             'categoria_id'=> 'integer|required|not_in:0',
-            'archivo'=> 'required|file|between:1,900|mimes:png,jpg',
+            'archivo'=> 'required|file|between:1,14000|mimes:png,jpg',
         ];
     }
     public function messages(){
@@ -43,11 +43,11 @@ class ProductoRequest extends FormRequest
         'nombre.max'=>'El Nombre debe tener máximo 20  caracteres',
         'nombre.unique'=>'El Nombre ya ha sido registrado',
 
-        'categoria.not_in'=>'Seleccione una opción válida',
+        'categoria_id.not_in'=>'Seleccione una opción válida',
 
         'archivo.required'=> 'Debe seleccionar una imagen',
         'archivo.file'=> 'El archivo no fue subido correctamente',
-        'archivo.between'=> 'El peso permitido es de 1 kb a 900kb',
+        'archivo.between'=> 'El peso permitido es de 1 kb a 14000kb',
         'archivo.mimes'=> 'Tipo de archivo debe ser png o jpg',
 
       ];

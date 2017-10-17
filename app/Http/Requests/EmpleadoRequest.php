@@ -25,8 +25,8 @@ class EmpleadoRequest extends FormRequest
     {
       return [
           //
-          'nombre'=>'required | min:4 | max:20 | unique:users',
-          'apellido'=>'required | min:4 | max:20 | unique:users',
+          'nombre'=>'required | min:4 | max:20',
+          'apellido'=>'required | min:4 | max:20',
           'direccion'=>'required | min:10 | max:20',
           'telefono'=>'required | size:9 | unique:users',
           'dui'=> 'required | size:10 | unique:users',
@@ -42,13 +42,11 @@ class EmpleadoRequest extends FormRequest
         'nombre.required'=>'El campo Nombre es obligatorio',
         'nombre.min'=>'El Nombre debe tener al menos 4 caracteres',
         'nombre.max'=>'El Nombre debe tener máximo 20 caracteres',
-        'nombre.unique'=>'Nombre ya ha sido registrado',
 
         'apellido.required'=>'El campo Apellido es obligatorio',
         'apellido.size'=>'El Apellido debe tener al menos 4 caracteres',
         'apellido.size'=>'El Apellido debe tener máximo 20 caracteres',
-        'apellido.unique'=>'Apellido ya ha sido registrado',
-
+        
         'direccion.required'=>'El campo dirección es obligatorio',
         'direccion.min'=>'La dirección debe tener al menos 10 caracteres',
         'direccion.max'=>'La dirección debe tener máximo 20 caracteres',

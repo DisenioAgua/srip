@@ -44,7 +44,7 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
         /*$binario_nombre_temporal=$_FILES['archivo']['tmp_name'];
         $binario_contenido = addslashes(fread(fopen($binario_nombre_temporal, "rb"), filesize($binario_nombre_temporal)));

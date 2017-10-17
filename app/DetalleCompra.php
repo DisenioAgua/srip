@@ -13,4 +13,8 @@ class DetalleCompra extends Model
         $productos=Producto::find($id);
         return $productos->nombre;
       }
+       public static function existeProducto($id){
+         $contador = DetalleCompra::where('producto_id','=',$id)->count();
+         return $contador;
+       }
 }

@@ -21,7 +21,7 @@
       buttonsStyling: false
     }).then(function(){
       var dominio = window.location.host;
-      $('#formulario').attr('action','http://'+dominio+'/fjj/public/destroyUser/'+id);
+      $('#formulario').attr('action','http://'+dominio+'/srip/public/destroyUser/'+id);
       $('#formulario').submit();
       swal('¡Hecho!',
            'El registro se ha eliminado',
