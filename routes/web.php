@@ -35,6 +35,7 @@ Route::resource('proveedores','ProveedorController');
 Route::resource('compras','CompraController');
 Route::resource('productos','ProductoController');
 Route::resource('users','UserController');
+Route::resource('bitacoras','BitacoraController');
 
 Route::resource('login','LoginController');
 Route::get('logout','LoginController@logout');//salir

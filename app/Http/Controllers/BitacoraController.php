@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bitacora;
 
 class BitacoraController extends Controller
 {
@@ -11,9 +12,11 @@ class BitacoraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $id_usuario = $request->get('id_usuario');
+        $bitacoras=Bitacora::buscar($id_usuario);
+        return view('Bitacoras.index', compact('bitacoras'));
     }
 
     /**
