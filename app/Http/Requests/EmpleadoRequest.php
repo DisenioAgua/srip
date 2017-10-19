@@ -34,6 +34,7 @@ class EmpleadoRequest extends FormRequest
           'email'=> 'required | email | unique:users',
           'password'=> 'required_if:bandera,1| size:9 | confirmed',
           'acceso' => 'integer|required|not_in:0',
+          'archivo'=> 'required|file|between:1,14000|mimes:png,jpeg,jpg',
       ];
     }
     public function messages(){
@@ -46,7 +47,7 @@ class EmpleadoRequest extends FormRequest
         'apellido.required'=>'El campo Apellido es obligatorio',
         'apellido.size'=>'El Apellido debe tener al menos 4 caracteres',
         'apellido.size'=>'El Apellido debe tener máximo 20 caracteres',
-        
+
         'direccion.required'=>'El campo dirección es obligatorio',
         'direccion.min'=>'La dirección debe tener al menos 10 caracteres',
         'direccion.max'=>'La dirección debe tener máximo 20 caracteres',
@@ -72,6 +73,11 @@ class EmpleadoRequest extends FormRequest
         'password.confirmed'=>'Debe confirmar Contraseña',
 
           'acceso.not_in'=>'Seleccione una opción válida',
+
+          'archivo.required'=> 'Debe seleccionar una imagen',
+          'archivo.file'=> 'El archivo no fue subido correctamente',
+          'archivo.between'=> 'El peso permitido es de 1 kb a 14000kb',
+          'archivo.mimes'=> 'Tipo de archivo debe ser png,jpeg o jpg',
 
       ];
     }

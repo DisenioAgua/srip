@@ -3,6 +3,7 @@
 namespace App;
 use Auth;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Bitacora extends Model
 {
@@ -17,15 +18,18 @@ class Bitacora extends Model
       ]);
     }
   }
-  public static function buscar($id_usuario){
-    return Bitacora::id_usuario($id_usuario)->orderBy('created_at')->paginate(8);
-  }
-  public function scopeId_usuario($query, $id_usuario){
-    $query->where('id_usuario', '=', $id_usuario);
-  }
+
   public static function nombreUsuario($id){
     $usuarios=User::find($id);
     return $usuarios->name;
+  }
+  public static function buscar($usuario){
+    $bitacora = DB::table('bitacoras')
+    ->select('bitacoras.*','users.name')
+    ->join('users','bitacoras.id_usuario','=','users.id','left outer')
+    ->where('users.name','LIKE','%'.$usuario.'%')
+    ->paginate(8);
+    return $bitacora;
   }
 
 }

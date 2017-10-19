@@ -42,7 +42,7 @@
             @foreach($bitacoras as $bitacora)
             <tr>
               <td>{{$correlativo}}</td>
-              <td>{{Bitacora::nombreUsuario($bitacora->id_usuario)}}</td>
+              <td>{{$bitacora->name}}</td>
               <td>{{$bitacora->detalle}}</td>
 
             </tr>

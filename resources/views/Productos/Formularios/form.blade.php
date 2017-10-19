@@ -9,7 +9,7 @@
 @endif
 <div class="x_content">
   @foreach ($errors->get('codigo') as  $error)
-    <div class="alert-d">
+    <div class="alert-d" style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach
@@ -33,7 +33,7 @@
     </div>
   </div>
   @foreach ($errors->get('categoria_id') as  $error)
-    <div class="alert-d">
+    <div class="alert-d" style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach
@@ -59,7 +59,7 @@
     </div>
   </div>
   @foreach ($errors->get('archivo') as  $error)
-    <div class="alert-d">
+    <div class="alert-d" style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach

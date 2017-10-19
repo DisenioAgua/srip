@@ -120,7 +120,6 @@
   </body>
 </html>
 @else
-  <!DOCTYPE HTML>
   <!DOCTYPE html>
   <html>
     <head>

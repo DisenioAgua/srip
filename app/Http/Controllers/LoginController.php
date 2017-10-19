@@ -101,38 +101,41 @@ class LoginController extends Controller
       return Redirect('/');
     }
     public function correo(Request $request){
-      $count=0;
-      $usuario= User::where('email','=',$request['email'])->get();
-      foreach ($usuario as $us) {
-       $u=$us->name;
-       $c=$us->password;
-       $count=$count+1;
-      }
-      if($count==1){
-        $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-        $cad = "";
-        for($i=0;$i<12;$i++){
-          $cad .= substr($str,rand(0,62),1);
+
+    $count=0;
+       $usuario= User::where('email', '=',$request['email'])->get();
+       foreach ($usuario as $us) {
+           $u=$us->name;
+           $c=$us->password;
+           $count=$count+1;
+       }
+
+       if($count==1){
+         $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+       $cad = "";
+       for($i=0;$i<12;$i++)
+       {
+           $cad .= substr($str,rand(0,62),1);
+       }
+
+     DB::beginTransaction();
+      DB::table('users')
+           ->where('email',$request['email'])
+           ->update([
+           'password'=>bcrypt($cad),
+           ]);
+
+       $cambio='Su usuario es: '.$u.' Su contraseña es :'.$cad;
+
+       mail($request['email'], "Recuperar contraseña", $cambio);
+
+       DB::commit();
+      //  $mensaje = "Usuario y nueva contraseña enviados";
+      //  return redirect('/',compact('mensaje'));
+      //  }
+      //  else{
+      //   $error = "Ningún usuario registrado con ese correo";
+      //      return redirect('/',compact('error'));
         }
-        $mensaje='Su usuario es: '.$u. 'Su contraseña es :'.$cad;
-        try{
-          Mail::raw($mensaje,function($msj) use ($request){
-            $msj->subject('Nueva contraseña en Srip');
-            try{
-              $msj->to($request['email']);
-            } catch (\Swift_RfcComplianceException $e){
-              DB::rollback();
-              return redirect('/')->with('error','Lo sentimos el correo no pudo ser enviado');
-            }
-          });
-        }catch (\Swift_TransportException $e){
-          DB::rollback();
-          return redirect('/')->with('error','Revise el acceso a internet');
-        }
-        DB::commit();
-        return redirect('/')->with('mensaje','Usuario y nueva contraseña enviados');
-      }else{
-        return redirect('/')->with('error','Ningún usuario registrado con ese correo');
-      }
     }
 }

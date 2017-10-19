@@ -138,7 +138,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;"> Perfil de usuario</a></li>
+                  <li><a href={!! asset('/Perfil/'.Auth::user()->id)!!}> Perfil de usuario</a></li>
 
 
                   <li><a href={!! asset('/logout')!!}><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a></li>

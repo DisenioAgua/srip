@@ -1,6 +1,6 @@
 <div class="x_content">
   @foreach ($errors->get('nombre') as  $error)
-    <div class="alert-d">
+    <div class="alert-d" style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach
@@ -12,7 +12,7 @@
     </div>
   </div>
   @foreach ($errors->get('direccion') as  $error)
-    <div class="alert-d">
+    <div class="alert-d" style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach
@@ -24,7 +24,7 @@
     </div>
   </div>
   @foreach ($errors->get('telefono') as  $error)
-    <div class="alert-d">
+    <div class="alert-d" style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach
@@ -36,7 +36,7 @@
     </div>
   </div>
   @foreach ($errors->get('nit') as  $error)
-    <div class="alert-d">
+    <div class="alert-d"style="color: #a94442">
       <br>{{$error}}
     </div>
   @endforeach

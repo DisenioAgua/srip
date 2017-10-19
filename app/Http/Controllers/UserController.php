@@ -8,6 +8,7 @@ use Input;
 use App\Http\Controllers\Controller;
 use App\User; //para poder usar el modelo
 use Redirect;
+use Storage;
 use App\Http\Requests\EmpleadoRequest;
 
 class UserController extends Controller
@@ -76,7 +77,11 @@ class UserController extends Controller
       $users = User::find($id);
       return view('Empleados.edit',compact('users'));
     }
-
+    public function perfil($id)
+    {
+      $users = User::find($id);
+      return view('Empleados.perfilUsuario',compact('users'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -86,6 +91,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
       $men['nombre.required']='El campo Nombre es obligatorio';
       $men['nombre.size']='El Nombre debe tener 6 caracteres';
       $men['nombre.unique']='Nombre ya ha sido registrado';
@@ -107,46 +113,61 @@ class UserController extends Controller
       $men['dui.unique']='El campo NIT ya ha sido registrado';
 
       $men['name.required']='El campo usuario es obligatorio';
-      $men['name.size']='El usuario debe tener 6 caracteres';
+      $men['name.size']='El usuario debe tener 9 caracteres';
       $men['name.unique']='usuario ya ha sido registrado';
 
       $men['email.required']='El campo email es obligatorio';
       $men['email.size']='El email debe tener 6 caracteres';
       $men['email.unique']='email ya ha sido registrado';
 
-      $men['password.required']='El campo password es obligatorio';
-      $men['password.size']='El password debe tener 6 caracteres';
-      $men['password.unique']='password ya ha sido registrado';
+      $men['password.required']='El campo contraseña es obligatorio';
+      $men['password.size']='La contraseña debe tener 9 caracteres';
+      $men['password.confirmed']='La confirmación de contraseña no coincide';
 
       $men['acceso.not_in']='Seleccione una opción válida';
 
-      $v1=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=0;
+      $men['archivo.required']='Debe seleccionar una imagen';
+      $men['archivo.file']='El archivo no fue subido correctamente';
+      $men['archivo.between']='El peso permitido es de 1 kb a 14000kb';
+      $men['archivo.mimes']='Tipo de archivo debe ser png, jpeg o jpg';
+
+      $v1=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=$v10=0;
      $users = User::find($id);
-     if ($request['nombre']==$users['nombre']) {
-       $v1=1;
+     if($request['bandera']!=3){
+       if ($request['nombre']==$users['nombre']) {
+         $v1=1;
+       }else{
+           $val['nombre']='required | min:4 | max:20 | unique:users';
+       }
+       if ($request['apellido']==$users['apellido']) {
+         $v2=1;
+       }else{
+           $val['nombre']='required | min:4 | max:20 | unique:users';
+       }
+       if ($request['direccion']==$users['direccion']) {
+         $v3=1;
+       }else{
+           $val['direccion']='required | min:10 | max:20 | unique:users';
+       }
+       if ($request['telefono']==$users['telefono']) {
+         $v4=1;
+       }else{
+         $val['telefono']='required | size:9 | unique:users';
+       }
+       if ($request['dui']==$users['dui']) {
+         $v5=1;
+       }else{
+         $val['dui']= 'required | size:10 | unique:users';
+       }
+       if ($request['acceso']==$users['acceso']) {
+         $v9=1;
+       } else {
+         $val['acceso']='integer|required|not_in:0';
+       }
      }else{
-         $val['nombre']='required | min:4 | max:20 | unique:users';
+       $v1=$v2=$v4=$v3=$v5=$v9=1;
      }
-     if ($request['apellido']==$users['apellido']) {
-       $v2=1;
-     }else{
-         $val['nombre']='required | min:4 | max:20 | unique:users';
-     }
-     if ($request['direccion']==$users['direccion']) {
-       $v3=1;
-     }else{
-         $val['direccion']='required | min:10 | max:20 | unique:users';
-     }
-     if ($request['telefono']==$users['telefono']) {
-       $v4=1;
-     }else{
-       $val['telefono']='required | size:9 | unique:users';
-     }
-     if ($request['dui']==$users['dui']) {
-       $v5=1;
-     }else{
-       $val['dui']= 'required | size:10 | unique:users';
-     }
+
      if ($request['name']==$users['name']) {
        $v6=1;
      }else{
@@ -159,20 +180,30 @@ class UserController extends Controller
      }
      if ($request['password']=='') {
        $v8=1;
-       $users['password']=$request['password'];
+       $request['password']=$users['password'];
      }else{
-       $val['password']=  'required_if:bandera,1| size:9 | confirmed';
-     }
-     if ($request['acceso']==$users['acceso']) {
-       $v9=1;
-     } else {
-       $val['acceso']='integer|required|not_in:0';
+       $val['password']=  ' size:9 |required_if:bandera,1 |confirmed';
      }
 
-     if ($v1==1 && $v2==1 && $v3==1 && $v4==1 && $v5==1 && $v6==1 && $v7==1 && $v8==1 && $v9==1) {
+     if($request['archivo']!=null){
+       $file = Input::file('archivo');
+       $image = \Image::make(\Input::file('archivo'));
+       $path = public_path().'/imagenes/';
+       $image->resize(200,200);
+       $image->save($path.$file->getClientOriginalName());
+       $request['foto']= $file->getClientOriginalName();
+       Storage::delete($path.$users->foto);
+       $val['archivo']='required|file|between:1,14000|mimes:png,jpeg,jpg';
+    }else{
+      $v10=1;
+    }
+     if ($v1==1 && $v2==1 && $v3==1 && $v4==1 && $v5==1 && $v6==1 && $v7==1 && $v8==1 && $v9==1 && $v10==1) {
          return redirect('/users')->with('mensaje','No hay cambios');
      } else {
        $this->validate($request,$val,$men);
+       if($v8==0){
+         $request['password']=bcrypt($request['password']);
+       }
        $users->fill($request->all());
        $users->save();
        Bitacora::bitacora("Modificación de usuario: ".$request->name);
