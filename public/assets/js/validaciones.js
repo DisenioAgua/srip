@@ -27,7 +27,7 @@ function validarTelefono(obj, e,valor)
    return aux;
  }
  ///validacion del dui
- function dui(obj,e,valor){
+ function validarDui(obj,e,valor){
 tecla = (document.all) ? e.keyCode : e.which;
 if(tecla > 47 && tecla < 58 && valor.length<8){
   return true;
@@ -39,4 +39,27 @@ if(tecla > 47 && tecla < 58 && valor.length<8){
 return true;
 }
   return false;
+}
+///validacion del nit
+function validarNit(obj,e,valor){
+tecla = (document.all) ? e.keyCode : e.which;
+letra = String.fromCharCode(tecla);
+if(tecla > 47 && tecla < 58 && valor.length<4){
+return true;
+
+}else if(valor.length==4 && letra=='-'){
+return true;
+}else if (tecla > 47 && tecla < 58 && valor.length>4 &&  valor.length<11) {
+  return true;
+}else if (valor.length==11 && letra=='-') {
+  return true;
+}else if (tecla > 47 && tecla < 58 && valor.length>11 &&  valor.length<15) {
+return true;
+}else if (valor.length==15 && letra=='-') {
+  return true;
+}else if (tecla > 47 && tecla < 58 &&  valor.length==16) {
+return true;
+}else{
+  return false;
+}
 }

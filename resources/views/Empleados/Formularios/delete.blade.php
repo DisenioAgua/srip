@@ -2,9 +2,15 @@
 <a href={!! asset('/users/'.$user->id.'/edit')!!} class="btn btn-xs btn-primary">
 <i class="fa fa-edit"></i>
  </a>
-<button type="button" class="btn btn-danger btn-xs" onclick={!!"'eliminar(".$user->id.");'"!!}/>
-<i class="fa fa-remove"></i>
-</button>
+ @if ($user->id == Auth::user()->id)
+   <button type="button" class="btn btn-danger btn-xs" onclick={!!"'noEliminar();'"!!}/>
+     <i class="fa fa-remove"></i>
+   </button>
+ @else
+   <button type="button" class="btn btn-danger btn-xs" onclick={!!"'eliminar(".$user->id.");'"!!}/>
+     <i class="fa fa-remove"></i>
+   </button>
+ @endif
 {!!Form::close()!!}
 <script type="text/javascript">
   function eliminar(id){
@@ -34,5 +40,8 @@
 
       }
     });
+  }
+  function noEliminar(){
+    swal('No se puede eliminar porque el usuario esta activo','Click al botón!','warning')
   }
 </script>

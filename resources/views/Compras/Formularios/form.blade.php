@@ -43,7 +43,7 @@
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
         <span class="fa fa-cubes form-control-feedback left" aria-hidden="true"></span>
-        {!! Form::text('producto_id',null,['id'=>'lproducto','class'=>'form-control has-feedback-left','placeholder'=>'Nombre del producto'])!!}
+        {!! Form::text('producto_id',null,['id'=>'lproducto','class'=>'form-control has-feedback-left','readonly'=>'readonly','placeholder'=>'Nombre del producto'])!!}
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
         <span class="fa fa-plus-square-o form-control-feedback left" aria-hidden="true"></span>
@@ -93,7 +93,7 @@
 <div class="row">
   <div class="col-md-3 col-sm-12 col-xs-12 form-group">
     <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
-    {!! Form::number('total',null,[ 'id'=>'ltotal','class'=>'form-control has-feedback-left','placeholder'=>'Total'])!!}
+    {!! Form::number('total',null,[ 'id'=>'ltotal','class'=>'form-control has-feedback-left','readonly'=>'readonly','placeholder'=>'Total'])!!}
   </div>
 </div>
 </div>
