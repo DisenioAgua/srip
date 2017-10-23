@@ -206,7 +206,7 @@ html , body{
     background: none
 }
 .nav-sm>.nav.side-menu>li.active-sm>a {
-    color: #1ABB9C !important
+    color : #33a6b7 !important
 }
 .nav-sm .nav.side-menu li a i.toggle-up {
     display: none !important
@@ -322,8 +322,8 @@ html , body{
 }
 .nav_menu {
     float: left;
-    background: 	#1ABB9C;
-    border-bottom: 1px solid #D9DEE4;
+    background: 	#33a6b7;
+    border-bottom: 1px solid #33a6b7;
     margin-bottom: 10px;
     width: 100%;
     position: relative
@@ -786,7 +786,7 @@ a:focus {
 /*Cambiar color de l linea del menu  */
 .nav.side-menu>li.current-page,
 .nav.side-menu>li.active {
-    border-right: 5px solid #1ABB9C
+    border-right: 5px solid #33a6b7
 }
 .nav li.current-page {
     background: rgba(255, 255, 255, 0.05)
@@ -3396,7 +3396,7 @@ ul.project_files li a i {
     font-size: 35px
 }
 .login {
-    background: #33a6b7
+    background: #33a6b7;
 }
 .login .fa-paw {
     font-size: 26px

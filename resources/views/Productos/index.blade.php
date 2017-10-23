@@ -36,7 +36,7 @@
               <th>Código</th>
               <th>Nombre</th>
               <th>Categoria</th>
-              <th colspan="2">Opciones</th>
+              <th colspan="3">Opciones</th>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +52,7 @@
               <td>
                 @include('Productos.Formularios.delete')
   				    </td>
+            
 
             </tr>
             @php

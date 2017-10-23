@@ -54,17 +54,13 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><img src= {!! asset("img/logo2.png") !!}  alt="" style="height:60px">
+            <a href={!! asset("/inicio")!!} class="site_title"><img src= {!! asset("img/logo2.png") !!}  alt="" style="height:60px">
                <span>Srip</span></a>
           </div>
 
           <div class="clearfix"></div>
 
-          <!-- menu profile quick info -->
-
-          <!-- /menu profile quick info -->
-
-          <br />
+          <br>
 
           <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -93,7 +89,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 </li>
                 <li><a><i class="fa fa-lock"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="form.html">Bitacora</a></li>
+                    <li><a href={!! asset('/bitacoras')!!}>Bitacora</a></li>
                       <li><a href="form.html">Respaldo de ase de Datos</a></li>
                         <li><a href="form.html">Restauración de Base de Datos</a></li>
                   </ul>
@@ -113,10 +109,24 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
             </div>
 
           </div>
+          <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Principal" href={!! asset("/inicio")!!}>
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Cerrar sesión" href={!! asset('/logout')!!}>
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
           <!-- /sidebar menu -->
 
-
         </div>
+
       </div>
 
       <!-- top navigation -->
@@ -157,10 +167,9 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
 
 @yield('layout')
 
-        <br />
+
       </div>
       </div>
-      <!-- /page content -->
 
       <!-- footer content -->
       <footer>

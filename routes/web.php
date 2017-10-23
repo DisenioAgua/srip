@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/inicio', function () {
-    return view('fondo');
+    return view('principal');
 });
 
 Route::get('pass', function () {

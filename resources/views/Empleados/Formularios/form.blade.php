@@ -1,7 +1,7 @@
 <div class="x_content">
   <div class="row">
     @foreach ($errors->get('nombre') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -23,7 +23,7 @@
       </div>
     </div>
     @foreach ($errors->get('apellido') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -35,7 +35,7 @@
       </div>
     </div>
     @foreach ($errors->get('name') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -47,7 +47,7 @@
       </div>
     </div>
     @foreach ($errors->get('direccion') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -59,7 +59,7 @@
       </div>
     </div>
     @foreach ($errors->get('email') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -71,7 +71,7 @@
       </div>
     </div>
     @foreach ($errors->get('telefono') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -83,7 +83,7 @@
       </div>
     </div>
     @foreach ($errors->get('password') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -95,7 +95,7 @@
       </div>
     </div>
     @foreach ($errors->get('dui') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -107,7 +107,7 @@
       </div>
     </div>
     @foreach ($errors->get('password_confirmation') as  $error)
-      <div class="alert-d">
+      <div class="alert-d" style="color: #a94442">
         <br>{{$error}}
       </div>
     @endforeach
@@ -128,7 +128,7 @@
     </label>
     </div>
       @foreach ($errors->get('archivo') as  $error)
-        <div class="alert-d">
+        <div class="alert-d" style="color: #a94442">
           <br>{{$error}}
         </div>
       @endforeach

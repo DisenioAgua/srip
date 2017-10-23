@@ -10,7 +10,6 @@
         ?>
         {!! Html::image($url,'',array('class'=>'','width'=>'150', 'heigth'=>'150'))!!}
       </div>
-
     </div>
   </div>
 @endsection

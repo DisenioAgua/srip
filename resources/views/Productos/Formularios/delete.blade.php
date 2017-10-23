@@ -3,6 +3,7 @@
   $contador = DetalleCompra::existeProducto($producto->id);
 @endphp
 {!!Form::open(['method'=>'POST','id'=>'formulario'])!!}
+<a href={!! asset('productos/'.$producto->id) !!} class='btn btn-xs btn-dark'><i class='fa fa-eye'></i></a>
 <a href={!! asset('/productos/'.$producto->id.'/edit')!!} class="btn btn-xs btn-primary">
 <i class="fa fa-edit"></i>
  </a>

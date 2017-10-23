@@ -9,7 +9,7 @@ $(document).ready(function(){
     precio=$("#lprecio").val() || 0;
     total=$("#ltotal").val() || 0;
 
-    if (codigoprodc && nombreproducto && cantidad && precio) {
+    if (codigoprodc && nombreproducto && cantidad && precio && nombreproducto != "El producto no existe") {
       var subtotal=parseFloat(precio)*parseFloat(cantidad);
     $(tabla).append(
       "<tr data-codigo='"+codigoprodc+"' data-nomprod='"+nombreproducto+"' data-cantidad='"+cantidad+"' data-precio='"+precio+"' >"+
@@ -18,7 +18,7 @@ $(document).ready(function(){
       "<td><input type='hidden' name='cantidad[]' value = '"+cantidad+"'/>"+cantidad+"</td>"+
       "<td><input type='hidden' name='precio[]' value = '"+precio+"'/>"+precio+"</td>"+
       "<td>"+subtotal+"</td>"+
-      "<td> <button id='btneliminar' class='btn-group btn btn-danger btn-xs'></button></td>"+
+      "<td> <button id='btneliminar' class='btn-group btn btn-danger btn-xs'><i class='fa fa-remove'></i></button></td>"+
       "</tr>"
     );
     totalcompra+=parseFloat(precio)*parseFloat(cantidad);
