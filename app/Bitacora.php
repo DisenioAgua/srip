@@ -8,6 +8,7 @@ use DB;
 class Bitacora extends Model
 {
   protected $fillable = ['id_usuario','detalle'];
+  protected $dates =['created_at'];
 
   public static function bitacora($detalle){
 

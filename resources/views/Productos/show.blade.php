@@ -5,7 +5,7 @@
       <div class="x_title">
         <h2>Producto: {{$productos['codigo']}}</h2>
         <div class="clearfix"></div>
-        <?php $url = Storage::url($productos['ruta']);
+        <?php 
         $url="/imagenes/".$productos['ruta'];
         ?>
         {!! Html::image($url,'',array('class'=>'','width'=>'150', 'heigth'=>'150'))!!}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bitacora;
+use Carbon\Carbon;
 
 class BitacoraController extends Controller
 {

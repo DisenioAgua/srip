@@ -1,5 +1,6 @@
 @php
   use App\Bitacora;
+  setlocale(LC_ALL,'es');
 @endphp
 @extends('fondo')
 @section('layout')
@@ -32,6 +33,7 @@
               <th>#</th>
               <th>Usuario</th>
               <th>Descripción</th>
+              <th>Fecha</th>
 
             </tr>
           </thead>
@@ -44,7 +46,9 @@
               <td>{{$correlativo}}</td>
               <td>{{$bitacora->name}}</td>
               <td>{{$bitacora->detalle}}</td>
-
+              {{-- <td>{{$bitacora->created_at->formatLocalized('%d de %B de %Y a las %H:%M:%S')}}</td> --}}
+              {{-- <td>{{$bitacora->created_at->format('d-m-Y')}}</td> --}}
+              
             </tr>
             @php
               $correlativo++;

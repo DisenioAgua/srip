@@ -11,6 +11,7 @@ use Redirect;
 use App\Producto;
 use App\DetalleCompra;
 use App\Bitacora;
+use Validator;
 
 class CompraController extends Controller
 {
@@ -46,6 +47,24 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
+      $validar= Validator::make($request->all(),[
+        'num_factura'=>'required| min:5 | max:7 | unique:compras',
+        'codigo'=>'required',
+      ],[
+        'num_factura.required'=>'El número de factura es obligatorio',
+        'num_factura.min'=>'El número de factura debe contener mínimo 5 caracteres',
+        'num_factura.max'=>'El número de factura debe contener máximo 7 caracteres',
+        'num_factura.unique'=>'El número de factura ya esta registrado',
+
+        'codigo.required'=>"No ha ingresado ningún detalle",
+      ]
+    );
+    if ($validar->fails()) {
+      $proveedores= Proveedor::orderBy('nombre','asc')->get();
+      return redirect()->back()->withErrors($validar->errors());
+      //return view('compras.create',compact('proveedores'))->withErrors($validar->errors());
+    } else {
+
       $compra= Compra::create($request->All());
       if(isset($request->codigo)){
         foreach ($request->codigo as $c => $com) {
@@ -60,6 +79,7 @@ class CompraController extends Controller
       }
       // Bitacora::bitacora("Registro de nueva compra n° de factura: " .$request->num_factura);
       return redirect('/compras');
+    }
     }
 
     /**

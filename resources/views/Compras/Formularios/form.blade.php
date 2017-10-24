@@ -13,6 +13,13 @@
 @php
   $hoy = Carbon\Carbon::now();
 @endphp
+@foreach ($errors->all() as $error)
+    <?php echo("
+    <script language='javascript'>
+      swal('Error','".$error."','error');
+    </script>
+    ");?>
+@endforeach
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
       <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
       {!! Form::date('fecha_compra',$hoy,['max'=>$hoy->format('Y-m-d'),'class'=>'form-control has-feedback-left'])!!}

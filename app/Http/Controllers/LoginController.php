@@ -44,7 +44,7 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['name'=>$request['name'],'password'=>$request['password']])) {
           Bitacora::bitacora("Ingreso al sistema");
-          return view('fondo');
+          return redirect('/inicio');
         } else {
           $error='Usuario o contraseña incorrecta';
           return view('login',compact('error'));
