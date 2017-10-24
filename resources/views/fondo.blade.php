@@ -103,8 +103,6 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                         <li><a href="form.html">Reporte de Compra</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-question-circle"></i> Ayuda</span></a>
-                </li>
               </ul>
             </div>
 
@@ -113,8 +111,8 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
             <a data-toggle="tooltip" data-placement="top" title="Settings">
               <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            <a data-toggle="tooltip" data-placement="top" title="Ayuda">
+              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="Principal" href={!! asset("/inicio")!!}>
               <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
@@ -233,7 +231,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
   <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta http-equiv="refresh" content="0; URL=/srip/public">
+      <meta http-equiv="refresh" content="0; URL=/srip/public/inicio">
     </head>
     <body>
     </body>

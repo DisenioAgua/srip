@@ -19,8 +19,6 @@
           @endphp
           {!! Html::image($url)!!}
           <div class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>LA is always so much fun!</p>
           </div>
         </div>
 
@@ -30,8 +28,6 @@
           @endphp
           {!! Html::image($url)!!}
           <div class="carousel-caption">
-            <h3>Chicago</h3>
-            <p>Thank you, Chicago!</p>
           </div>
         </div>
 
@@ -41,8 +37,6 @@
           @endphp
           {!! Html::image($url)!!}
           <div class="carousel-caption">
-            <h3>New York</h3>
-            <p>We love the Big Apple!</p>
           </div>
         </div>
       </div>

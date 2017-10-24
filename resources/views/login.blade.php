@@ -52,10 +52,12 @@
               </div>
               <div>
                 {!!Form::password('password',null,['placeholder'=>'Contraseña'])!!}
-                {!!link_to('pass',$title = '¿Olvidó su contraseña?')!!}
               </div>
-              <div>
-                {!!Form::submit('Entrar')!!}
+              <div class="row">
+                <div>
+                  {!!Form::submit('Entrar')!!}
+                </div>
+                {!!link_to('pass',$title = '¿Olvidó su contraseña?')!!}
               </div>
 
               <div class="clearfix"></div>

@@ -36,7 +36,7 @@
               <th>Apellido</th>
               <th>Dirección</th>
               <th>Teléfono</th>
-              <th colspan="2">Opciones</th>
+              <th colspan="3">Opciones</th>
             </tr>
           </thead>
           <tbody>
