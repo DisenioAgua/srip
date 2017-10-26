@@ -89,10 +89,10 @@ class CategoriaController extends Controller
         $men['nombre.max']='El Nombre debe tener máximo 20  caracteres';
         $men['nombre.unique']='El Nombre ya ha sido registrado';
 
-        $men['descripcion.required']='El campo Descripcion es obligatorio';
-        $men['descripcion.min']='El Descripcion debe tener mínimo 10  caracteres';
-        $men['descripcion.max']='El Descripcion debe tener máximo 20  caracteres';
-        $men['descripcion.unique']='El Descripcion ya ha sido registrado';
+        $men['descripcion.required']='El campo Descripción es obligatorio';
+        $men['descripcion.min']='La Descripción debe tener mínimo 10  caracteres';
+        $men['descripcion.max']='La Descripción debe tener máximo 35  caracteres';
+        $men['descripcion.unique']='La Descripción ya ha sido registrada';
 
         $v1=0;
         $v2=0;
@@ -106,11 +106,11 @@ class CategoriaController extends Controller
             $validar['nombre']='required | min:4 | max:20 | unique:categorias';
         }
         if ($categorias['descripcion']==$request['descripcion']) {
-          $validar['descripcion']='required | min:10 | max:20';
+          $validar['descripcion']='required | min:10 | max:35';
           $v2=1;
         }
         else {
-            $validar['descripcion']='required | min:10 | max:20 | unique:categorias';
+            $validar['descripcion']='required | min:10 | max:35 | unique:categorias';
         }
         if ($v1==1 && $v2==1) {
             return redirect('/categorias')->with('mensaje','No hay cambios');

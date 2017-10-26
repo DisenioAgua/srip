@@ -1,10 +1,20 @@
+@php
+  use App\Compra;
+  $contador = Compra::existeProveedor($proveedor->id);
+@endphp
 {!!Form::open(['method'=>'POST','id'=>'formulario'])!!}
 <a href={!! asset('/proveedores/'.$proveedor->id.'/edit')!!} class="btn btn-xs btn-primary">
 <i class="fa fa-edit"></i>
  </a>
+ @if ($contador== 0)
 <button type="button" class="btn btn-danger btn-xs" onclick={!!"'eliminar(".$proveedor->id.");'"!!}/>
 <i class="fa fa-remove"></i>
 </button>
+@else
+  <button type="button" class="btn btn-danger btn-xs" onclick={!!"'noEliminar();'"!!}/>
+    <i class="fa fa-remove"></i>
+  </button>
+@endif
 {!!Form::close()!!}
 <script type="text/javascript">
   function eliminar(id){
@@ -34,5 +44,8 @@
 
       }
     });
+  }
+  function noEliminar(){
+    swal('No se puede eliminar porque pertenece a una compra','Click al botón!','warning')
   }
 </script>

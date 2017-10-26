@@ -32,5 +32,13 @@ class Bitacora extends Model
     ->paginate(8);
     return $bitacora;
   }
+  public static function buscar2($usuario){//para imprimir
+    $bitacora = DB::table('bitacoras')
+    ->select('bitacoras.*','users.name')
+    ->join('users','bitacoras.id_usuario','=','users.id','left outer')
+    ->where('users.name','LIKE','%'.$usuario.'%')
+    ->get();
+    return $bitacora;
+  }
 
 }

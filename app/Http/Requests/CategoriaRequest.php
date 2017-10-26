@@ -27,7 +27,7 @@ class CategoriaRequest extends FormRequest
       return [
           //
           'nombre'=>'required | min:4 | max:20 | unique:categorias',
-          'descripcion'=>'required | min:10 | max:20 | unique:categorias',
+          'descripcion'=>'required | min:10 | max:35 | unique:categorias',
 
       ];
     }
@@ -39,10 +39,10 @@ class CategoriaRequest extends FormRequest
         'nombre.max'=>'El Nombre debe tener máximo 20  caracteres',
         'nombre.unique'=>'El Nombre ya ha sido registrado',
 
-        'descripcion.required'=>'El campo Descripcion es obligatorio',
-        'descripcion.min'=>'El Descripcion debe tener mínimo 10  caracteres',
-        'descripcion.max'=>'El Descripcion debe tener máximo 20  caracteres',
-        'descripcion.unique'=>'El Descripcion ya ha sido registrado',
+        'descripcion.required'=>'El campo Descripción es obligatorio',
+        'descripcion.min'=>'La Descripción debe tener mínimo 10  caracteres',
+        'descripcion.max'=>'La Descripción debe tener máximo 35  caracteres',
+        'descripcion.unique'=>'La Descripción ya ha sido registrada',
 
       ];
     }

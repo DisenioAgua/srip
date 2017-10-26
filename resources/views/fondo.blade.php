@@ -89,8 +89,9 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 </li>
                 <li><a><i class="fa fa-lock"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href={!! asset('/bitacoras')!!}>Bitacora</a></li>
-                      <li><a href="form.html">Respaldo de ase de Datos</a></li>
+                    <li><a href={!! asset('/bitacoras')!!}>Bitácora</a></li>
+                    <li><a href={!! asset('/bitacoras/create')!!}>imprimir bitácora</a></li>
+                      <li><a href="form.html">Respaldo de Base de Datos</a></li>
                         <li><a href="form.html">Restauración de Base de Datos</a></li>
                   </ul>
                 </li>
@@ -231,7 +232,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
   <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta http-equiv="refresh" content="0; URL=/srip/public/inicio">
+      <meta http-equiv="refresh" content="0; URL=/srip/public">
     </head>
     <body>
     </body>

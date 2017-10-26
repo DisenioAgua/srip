@@ -27,7 +27,9 @@ class BitacoraController extends Controller
      */
     public function create()
     {
-        //
+        $id_usuario = "";
+        $bitacoras=Bitacora::buscar2($id_usuario);
+        return view('Bitacoras.imprimir', compact('bitacoras'));
     }
 
     /**

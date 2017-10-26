@@ -19,15 +19,15 @@
           <br>
           <table class="table">
             <tr>
-              <th>fecha</th>
+              <th>Fecha: </th>
               <td>{{$compra->fecha_compra->format('d-m-Y')}}</td>
             </tr>
             <tr>
-              <th>facura</th>
+              <th>Factura: </th>
               <td>{{$compra->num_factura}}</td>
             </tr>
             <tr>
-              <th>Proveedor</th>
+              <th>Proveedor: </th>
               <td>{{$compra->nombreProveedor($compra->proveedor_id)}}</td>
             </tr>
           </table>
@@ -37,10 +37,10 @@
           </div>
           <table class="table">
             <tr>
-              <th>producto</th>
-              <th>cantidad</th>
-              <th>precio</th>
-              <th>total</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
             </tr>
             @foreach ($detalleCompras as $dc)
               <tr>

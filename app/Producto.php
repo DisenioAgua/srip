@@ -22,4 +22,8 @@ class Producto extends Model
       $n= Categoria::find($id);
       return $n->nombre;
     }
+    public static function nombreCategorias2($id){
+      $n= Categoria::find($id);
+      return $n->descripcion;
+    }
 }

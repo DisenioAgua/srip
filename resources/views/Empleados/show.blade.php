@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-md-5 col-xs-12">
             <div class="btn-group">
-              <a href={!! asset('/users')!!} class="btn btn-success btn-md">
+              <a href={!! asset('/users')!!} class="btn btn-warning btn-md">
                 <i class="fa fa-mail-reply"></i>Regresar</a>
               </div>
             </div>
