@@ -1,3 +1,6 @@
+@php
+  $bandera = 0;
+@endphp
 @extends('fondo')
 @section('layout')
   {!!Form::model($users,['class' =>'form-horizontal form-label-left input_mask','autocomplete'=>'off','route' =>['users.update',$users->id],'method' =>'PUT'])!!}

@@ -130,8 +130,8 @@ class LoginController extends Controller
        mail($request['email'], "Recuperar contraseña", $cambio);
 
        DB::commit();
-      //  $mensaje = "Usuario y nueva contraseña enviados";
-      //  return redirect('/',compact('mensaje'));
+        $mensaje = "Usuario y nueva contraseña enviados";
+        return view('login',compact('mensaje'));
       //  }
       //  else{
       //   $error = "Ningún usuario registrado con ese correo";

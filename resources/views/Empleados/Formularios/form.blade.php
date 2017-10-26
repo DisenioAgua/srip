@@ -103,7 +103,12 @@
       <label class="control-label col-md-3 col-sm-3 col-xs-12">DUI:</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
         <span class="fa fa-indent form-control-feedback left" aria-hidden="true"></span>
-        {!! Form::text('dui',null,['class'=>'form-control has-feedback-left','onKeyPress'=> 'return validarDui(this, event, this.value);','placeholder'=>'DUI'])!!}
+        @if ($bandera==1)
+            {!! Form::text('dui',null,['class'=>'form-control has-feedback-left','onKeyPress'=> 'return validarDui(this, event, this.value);','placeholder'=>'DUI'])!!}
+        @else
+            {!! Form::text('dui',null,['class'=>'form-control has-feedback-left','readonly'=>'readonly','onKeyPress'=> 'return validarDui(this, event, this.value);','placeholder'=>'DUI'])!!}
+        @endif
+
       </div>
     </div>
     @foreach ($errors->get('password_confirmation') as  $error)

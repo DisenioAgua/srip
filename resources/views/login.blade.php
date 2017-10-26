@@ -38,6 +38,10 @@
       <?php
       echo "<script>swal('$error','Click al botón!','warning')</script>";?>
     @endif
+    @if (isset($mensaje))
+      <?php
+      echo "<script>swal('$mensaje','Click al botón!','info')</script>";?>
+    @endif
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>

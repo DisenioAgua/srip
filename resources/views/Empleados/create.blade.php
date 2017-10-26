@@ -1,4 +1,7 @@
 {{-- @if(Auth::user()->acceso==1) --}}
+@php
+  $bandera = 1;
+@endphp
 @extends('fondo')
 @section('layout')
   {!!Form::open(['class' =>'form-horizontal form-label-left input_mask','enctype'=>'multipart/form-data','files'=>true,'autocomplete'=>'off','role'=>'form','route' =>'users.store','method' =>'POST'])!!}
