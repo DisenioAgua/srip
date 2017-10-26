@@ -24,5 +24,9 @@ class Compra extends Model
     $proveedores=Proveedor::find($id);
     return $proveedores->nombre;
   }
+  public static function existeProveedor($id){
+    $contador = Compra::where('proveedor_id','=',$id)->count();
+    return $contador;
+  }
 
 }
