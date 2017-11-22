@@ -4,18 +4,19 @@ $(document).ready(function(){
     var texto=$("#buscar").val();
     var ruta="/srip/public/buscarProducto/"+texto;
     var ruta2="/srip/public/buscarActivo/"+texto;
-    tabla.empty();
-    head=
-    "<thead>"+
-    "<tr>"+
-    "<th>Nombre</th>"+
-    "<th>Opciones</th>"+
-    "</tr>"+
-    "</thead>";
-    tabla.append(head);
-    if(texto.length>0){
+
+    if(texto.length>0 && (texto.length%2)==0){
     $.get(ruta,function(res){
       $(res).each(function(key,value){
+        tabla.empty();
+        head=
+        "<thead>"+
+        "<tr>"+
+        "<th>Nombre</th>"+
+        "<th>Opciones</th>"+
+        "</tr>"+
+        "</thead>";
+        tabla.append(head);
         html =
         "<tr>"+
         "<td>"+
@@ -25,7 +26,6 @@ $(document).ready(function(){
         "<input type='hidden' name='tipo[]' value='producto'>"+
         "<input type='hidden' name='nombre_producto[]' value='"+value.nombre+"'>"+
         "<input type='hidden' name='id_producto[]' value='"+value.id+"'>"+
-        "<input type='hidden' name='id_activo[]' value=''>"+
         "<button type='button' class='btn btn-xs btn-primary' id='agregar_producto'>"+
         "<i class='fa fa-arrow-right'></i>"+
         "</button>"+
@@ -45,7 +45,6 @@ $(document).ready(function(){
         "<input type='hidden' name='tipo[]' value='activo'>"+
         "<input type='hidden' name='nombre_activo[]' value='"+value.nombre+"'>"+
         "<input type='hidden' name='id_activo[]' value='"+value.id+"'>"+
-        "<input type='hidden' name='id_producto[]' value=''>"+
         "<button type='button' class='btn btn-xs btn-primary' id='agregar_producto'>"+
         "<i class='fa fa-arrow-right'></i>"+
         "</button>"+
@@ -54,16 +53,26 @@ $(document).ready(function(){
         tabla.append(html);
       });
     });
+  }else if(texto.length==0){
+    tabla.empty();
+    head=
+    "<thead>"+
+    "<tr>"+
+    "<th>Nombre</th>"+
+    "<th>Opciones</th>"+
+    "</tr>"+
+    "</thead>";
+    tabla.append(head);
   }
 });
   $("#tabla").on('click','#agregar_producto',function(e){
     e.preventDefault();
+    var tipo =
+    $(this).parents('tr').find('input:eq(0)').val();
     var nombre =
     $(this).parents('tr').find('input:eq(1)').val();
-    var id_activo =
+    var id =
     $(this).parents('tr').find('input:eq(2)').val();
-    var id_producto =
-    $(this).parents('tr').find('input:eq(3)').val();
     var tabla = $("#tabla2");
     var tabla_busqueda = $("#tabla");
     var cantidad = $("#cantidad").val();
@@ -76,8 +85,9 @@ $(document).ready(function(){
     cantidad+
     "</td>"+
     "<td>"+
-    "<input type='hidden' name='servicios[]' value ='"+id+"'>"+
-    "<input type='hidden' name='cantidades_servicios[]' value ='"+cantidad+"'>"+
+    "<input type='hidden' name='tipo[]' value ='"+tipo+"'>"+
+    "<input type='hidden' name='servicio[]' value ='"+id+"'>"+
+    "<input type='hidden' name='cantidad[]' value ='"+cantidad+"'>"+
     "<button type='button' class='btn btn-xs btn-danger' id='eliminar_servicios'>"+
     "<i class='fa fa-remove'></i>"+
     "</button>"+

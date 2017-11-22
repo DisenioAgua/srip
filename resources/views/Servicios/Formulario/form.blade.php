@@ -58,7 +58,13 @@
         <input type="hidden" name="cambio[]" value="ninguno" id='camb'>
           @foreach($detalle_servicios as $detalle_servicio)
         <tr>
-          <td>{{$detalle_servicio->nombreP($detalle_servicio->producto_id)}}</td>
+          <td>
+            @if ($detalle_servicio->producto_id!="")
+              {{$detalle_servicio->producto->nombre}}
+            @else
+              {{$detalle_servicio->activo->nombre}}
+            @endif
+          </td>
           <td>{{$detalle_servicio->cantidad}}</td>
           <td>
             <input type='hidden' name='servicioscambios[]' value ={{$detalle_servicio->id}}>

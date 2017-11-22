@@ -46,17 +46,21 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-      $servicio= Servicio::create($request->All());
-      foreach ($request->servicios as $s => $ser) {
-        $detalle_servicio = new DetalleServicio;
-        $detalle_servicio->servicio_id=$servicio->id;
-        if ($request->tipo[$s]=="producto") {
-          $detalle_servicio->producto_id=$request->servicios[$s];
+      $servicio_nuevo= Servicio::create($request->All());
+      $contador=count($request->tipo);
+      $tipo=$request->tipo;
+      $servicio=$request->servicio;
+      $cantidad=$request->cantidad;
+      for($i=0;$i<$contador;$i++){
+        $detalles= new DetalleServicio;
+        $detalles->servicio_id=$servicio_nuevo->id;
+        if($tipo[$i]=="producto"){
+          $detalles->producto_id=$servicio[$i];
         }else{
-          $detalle_servicio->activofijo_id=$request->servicios[$s];
+          $detalles->activofijo_id=$servicio[$i];
         }
-        $detalle_servicio->cantidad=$request->cantidades_servicios[$s];
-        $detalle_servicio->save();
+        $detalles->cantidad=$cantidad[$i];
+        $detalles->save();
       }
       Bitacora::bitacora("Registro de nuevo servicio: " .$request->nombre);
       return redirect('/servicios')->with('mensaje','Hecho');
@@ -95,19 +99,19 @@ class ServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $servicio = Servicio::find($id);
-      $servicio->fill($request->all());
-      $servicio->save();
-      if (isset($request->servicios)) {
-        foreach ($request->servicios as $s => $ser) {
+      $servicio_nuevo = Servicio::find($id);
+      $servicio_nuevo->fill($request->all());
+      $servicio_nuevo->save();
+      if (isset($request->servicio)) {
+        foreach ($request->servicio as $s => $ser) {
           $detalle_servicio = new DetalleServicio;
-          $detalle_servicio->servicio_id=$servicio->id;
+          $detalle_servicio->servicio_id=$servicio_nuevo->id;
           if ($request->tipo[$s]=="producto") {
-          $detalle_servicio->producto_id=$request->servicios[$s];
+          $detalle_servicio->producto_id=$request->servicio[$s];
         }else{
-          $detalle_servicio->activofijo_id=$request->servicios[$s];
+          $detalle_servicio->activofijo_id=$request->servicio[$s];
         }
-          $detalle_servicio->cantidad=$request->cantidades_servicios[$s];
+          $detalle_servicio->cantidad=$request->cantidad[$s];
           $detalle_servicio->save();
         }
       }
