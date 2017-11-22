@@ -26,6 +26,9 @@
       <h2>Registrarse </h2>
       <div class="clearfix"></div>
     </div>
+    @php
+      $bandera=1;
+    @endphp
     <input type="hidden" name="bandera" value="1">
     @include('Empleados.Formularios.form')
   </div>

@@ -79,7 +79,7 @@
 <button type="reset" name="button" class="btn btn-default">Limpiar</button>
 <a href={!! asset('/productos')!!} class="btn btn-default">Cancelar</a>
 </center>
-</div>
+
 <script type="text/javascript">
   function foto(evt){
     var files = evt.target.files;

@@ -66,13 +66,17 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-users"></i> Clientes</span></a>
+                <li><a><i class="fa fa-users"></i> Clientes<span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href={!! asset('/clientes')!!}>Clientes</a></li>
+                    <li><a href={!! asset('/servicios')!!}>Servicios Funerarios</a></li>
+                    </ul>
                 </li>
                 <li><a href={!! asset('/proveedores')!!}><i class="fa fa-male"></i> Proveedores</span></a>
                 </li>
                 <li><a href={!! asset('/users')!!}><i class="fa fa-suitcase"></i> Empleados</span></a>
                 </li>
-                <li><a><i class="fa fa-car"></i> Activo Fijo</span></a>
+                <li><a href={!! asset('/activofijos')!!}><i class="fa fa-car"></i> Activo Fijo</span></a>
                 </li>
                 <li><a><i class="fa fa-dollar"></i> Ventas <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
@@ -223,6 +227,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
   {!!Html::script('assets/build/js/custom.min.js')!!}
     {!!Html::script('assets/js/validaciones.js')!!}
     {!!Html::script('js/compras.js')!!}
+      {!!Html::script('js/servicio.js')!!}
 
 </body>
 </html>

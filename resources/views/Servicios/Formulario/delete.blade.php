@@ -1,19 +1,10 @@
 {!!Form::open(['method'=>'POST','id'=>'formulario'])!!}
-<a href={!! asset('/users/'.$user->id) !!} class='btn btn-xs btn-dark'><i class='fa fa-eye'></i></a>
-<a href={!! asset('/users/'.$user->id.'/edit')!!} class="btn btn-xs btn-primary">
+<a href={!! asset('/servicios/'.$servicio->id.'/edit')!!} class="btn btn-xs btn-primary">
 <i class="fa fa-edit"></i>
  </a>
- @if(Auth::check())
- @if ($user->id == Auth::user()->id)
-   <button type="button" class="btn btn-danger btn-xs" onclick={!!"'noEliminar();'"!!}/>
+   <button type="button" class="btn btn-danger btn-xs" onclick={!!"'eliminar(".$servicio->id.");'"!!}/>
      <i class="fa fa-remove"></i>
    </button>
- @else
-   <button type="button" class="btn btn-danger btn-xs" onclick={!!"'eliminar(".$user->id.");'"!!}/>
-     <i class="fa fa-remove"></i>
-   </button>
- @endif
- @endif
 {!!Form::close()!!}
 <script type="text/javascript">
   function eliminar(id){
@@ -30,7 +21,7 @@
       buttonsStyling: false
     }).then(function(){
       var dominio = window.location.host;
-      $('#formulario').attr('action','http://'+dominio+'/srip/public/destroyUser/'+id);
+      $('#formulario').attr('action','http://'+dominio+'/srip/public/destroyServicio/'+id);
       $('#formulario').submit();
       swal('¡Hecho!',
            'El registro se ha eliminado',
@@ -43,8 +34,5 @@
 
       }
     });
-  }
-  function noEliminar(){
-    swal('No se puede eliminar porque el usuario esta activo','Click al botón!','warning')
   }
 </script>
