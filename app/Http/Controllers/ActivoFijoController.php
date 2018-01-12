@@ -63,6 +63,7 @@ class ActivoFijoController extends Controller
           $activo->tipoactivo=$request->tipoactivo;
           $activo->precio=$request->precio;
           $activo->cantidad=0;
+          $activo->precioalquiler=$request->precioalquiler;
           $activo->save();
           DB::commit();
           Bitacora::bitacora("Registro de nuevo activo: " .$request->nombre);

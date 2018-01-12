@@ -74,7 +74,9 @@ class ServicioController extends Controller
      */
     public function show($id)
     {
-        //
+      $servicios = Servicio::find($id);
+      $detalle_servicios = DetalleServicio::where('servicio_id',$id)->get();
+      return view('Servicios.show',compact('servicios','detalle_servicios'));
     }
 
     /**

@@ -38,6 +38,10 @@
                   <th>Descripción:</th>
                   <td>{{$productos->nombreCategorias2($productos->categoria_id)}}</td>
                 </tr>
+                <tr>
+                  <th>Precio:</th>
+                  <td>{{$productos->precio}}</td>
+                </tr>
               </table>
 
           </div>

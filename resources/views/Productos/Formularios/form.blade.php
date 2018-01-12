@@ -74,6 +74,14 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Precio:</label>
+    <div class="col-md-9 col-sm-9 col-xs-12">
+      <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
+       {!! Form::number('precio',null,['min'=>0.00,'step'=>0.05,'id'=>'lprecio','class'=>'form-control has-feedback-left','placeholder'=>'Precio'])!!}
+    </div>
+  </div>
+
 <center>
 {!!Form::submit('Guardar',['class'=>'btn btn-default'])!!}
 <button type="reset" name="button" class="btn btn-default">Limpiar</button>

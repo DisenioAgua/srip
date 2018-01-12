@@ -40,6 +40,8 @@ Route::resource('clientes','ClienteController');
 Route::resource('servicios','ServicioController');
 Route::resource('categoriaactivos','CategoriaActivoController');
 Route::resource('activofijos','ActivoFijoController');
+Route::resource('ventas','VentaController');
+Route::resource('pagos','PagoController');
 
 Route::resource('login','LoginController');
 Route::get('logout','LoginController@logout');//salir
@@ -55,7 +57,8 @@ Route::match(['get','post'],'destroyCliente/{id}','ClienteController@destroy');
 Route::match(['get','post'],'destroyServicio/{id}','ServicioController@destroy');
 Route::match(['get','post'],'destroyCategoriaActivo/{id}','CategoriaActivoController@destroy');
 Route::match(['get','post'],'destroyActivoFijo/{id}','ActivoFijoController@destroy');
-
+Route::match(['get','post'],'destroyVenta/{id}','VentaController@destroy');
+Route::match(['get','post'],'cambioestadoVenta/{id}','VentaController@cambioestado');
 
 Route::match(['get','post'],'/nombredelproducto/{id}','CompraController@nombreProducto');
 Route::match(['get','post'],'/buscarProducto/{id}','ServicioController@buscarProducto');

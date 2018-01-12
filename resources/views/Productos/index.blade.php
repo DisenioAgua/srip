@@ -52,7 +52,7 @@
               <td>
                 @include('Productos.Formularios.delete')
   				    </td>
-            
+
 
             </tr>
             @php

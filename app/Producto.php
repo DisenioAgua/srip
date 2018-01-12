@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     //
-    protected $fillable =['codigo','nombre','categoria_id','ruta'];
+    protected $fillable =['codigo','nombre','categoria_id','ruta','precio'];
 
     public static function buscar($nombre){
       return Producto::nombre($nombre)->orderBy('codigo')->paginate(8);

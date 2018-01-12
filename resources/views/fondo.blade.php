@@ -69,7 +69,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 <li><a><i class="fa fa-users"></i> Clientes<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href={!! asset('/clientes')!!}>Clientes</a></li>
-                    <li><a href={!! asset('/servicios')!!}>Servicios Funerarios</a></li>
+                    <li><a href={!! asset('/servicios')!!}>Registrar Servicios</a></li>
                     </ul>
                 </li>
                 <li><a href={!! asset('/proveedores')!!}><i class="fa fa-male"></i> Proveedores</span></a>
@@ -80,7 +80,10 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 </li>
                 <li><a><i class="fa fa-dollar"></i> Ventas <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="form.html">Pagos</a></li>
+                    <li><a href={!! asset('/ventas/create')!!}>Servicios Funerarios</a></li>
+                    <li><a href={!! asset('/ventas')!!}>Mostrar Ventas</a></li>
+                    <li><a href={!! asset('/pagos')!!}>Pagos</a></li>
+
                   </ul>
                   <li><a><i class="fa fa-shopping-cart"></i> Compra<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
