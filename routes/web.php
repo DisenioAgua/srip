@@ -63,3 +63,6 @@ Route::match(['get','post'],'cambioestadoVenta/{id}','VentaController@cambioesta
 Route::match(['get','post'],'/nombredelproducto/{id}','CompraController@nombreProducto');
 Route::match(['get','post'],'/buscarProducto/{id}','ServicioController@buscarProducto');
 Route::match(['get','post'],'/buscarActivo/{id}','ServicioController@buscarActivo');
+Route::match(['get','post'],'/validar/{id}','PagoController@validar');
+Route::match(['get','post'],'/reporteCliente','ReporteController@Rcliente');
+Route::match(['get','post'],'/verstock','ProductoController@index2');

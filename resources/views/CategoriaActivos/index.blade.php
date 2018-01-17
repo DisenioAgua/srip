@@ -14,6 +14,10 @@
             <a href={!! asset('/categoriaactivos/create')!!} class="btn btn-success btn-md">
               <i class="fa fa-plus"></i>Nuevo</a>
             </div>
+            <div class="btn-group">
+              <a href={!! asset('/activofijos/create')!!} class="btn btn-warning btn-md">
+                <i class="fa fa-reply"></i>Regresar</a>
+              </div>
         </div>
         <div class="col-md-3 col-xs-12">
         </div>

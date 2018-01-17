@@ -104,7 +104,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 </li>
                 <li><a><i class="fa fa-file-text"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="form.html">Reporte de clientes</a></li>
+                    <li><a href={!! asset('/reporteCliente')!!} target="_blank">Reporte de Clientes</a></li>
                       <li><a href="form.html">Reporte de Proveedores</a></li>
                         <li><a href="form.html">Repote de Activo Fijo</a></li>
                         <li><a href="form.html">Reporte de Venta</a></li>
@@ -139,6 +139,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
       <div class="top_nav">
         <div class="nav_menu">
           <nav>
+
             <div class="nav toggle">
               <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
@@ -160,9 +161,26 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                   <li><a href={!! asset('/logout')!!}><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a></li>
                 </ul>
               </li>
-
+             <li role="presentation" class="dropdown">
+               @php
+                 $cont = 0;
+                 $prod = App\Producto::get();
+                 foreach ($prod as $p) {
+                   $aux = App\Servicio::inventario($p->id);
+                   if($aux < $p->stock){
+                     $cont++;
+                   }
+                 }
+               @endphp
+                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-bell"></i>
+                  <span class="badge bg-red">{{$cont}}</span>
+                </a>
+            </li>
 
             </ul>
+
+
           </nav>
         </div>
       </div>
@@ -231,6 +249,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
     {!!Html::script('assets/js/validaciones.js')!!}
     {!!Html::script('js/compras.js')!!}
       {!!Html::script('js/servicio.js')!!}
+      {!!Html::script('js/pagos.js')!!}
 
 </body>
 </html>

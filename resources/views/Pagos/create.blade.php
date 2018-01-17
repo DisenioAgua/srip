@@ -1,6 +1,6 @@
 @extends('fondo')
 @section('layout')
-  {!!Form::open(['class' =>'form-horizontal form-label-left input_mask','autocomplete'=>'off','route' =>'pagos.store','method' =>'POST'])!!}
+  {!!Form::open(['class' =>'form-horizontal form-label-left input_mask','id'=>'Iform','autocomplete'=>'off','route' =>'pagos.store','method' =>'POST'])!!}
   <div class="col-md-6 col-xs-12">
     <div class="x_panel">
       <div class="x_title">

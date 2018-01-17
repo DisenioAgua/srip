@@ -4,7 +4,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Pendientes de Pago</h2>
+        <h2>Pagos</h2>
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
@@ -31,6 +31,7 @@
             <tr>
               <th>#</th>
               <th>Factura</th>
+              <th>Faltante</th>
               <th colspan="1">Opción</th>
             </tr>
           </thead>
@@ -42,6 +43,7 @@
             <tr>
               <td>{{$correlativo}}</td>
               <td>{{$pago->num_factura}}</td>
+              <td>{{$pago->validar($pago->id)}}</td>
               <td>
                 @include('Pagos.Formularios.delete')
               </td>

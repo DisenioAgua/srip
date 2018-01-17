@@ -74,7 +74,7 @@
   @endforeach
       <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Categoria:</label>
-      <div class="col-md-9 col-sm-9 col-xs-12">
+      <div class="col-md-8 col-sm-9 col-xs-10">
         <select class="form-control" name="categoria_id">
           <option value="0">Seleccionar</option>
           @foreach ($categoriaactivos as $categoriaactivo)
@@ -86,6 +86,10 @@
           @endforeach
         </select>
       </div>
+      <div class="btn-group">
+        <a href={!! asset('/categoriaactivos')!!} class="btn btn-info btn-xs">
+          <i class="fa fa-plus"></i></a>
+        </div>
     </div>
     @foreach ($errors->get('precio') as  $error)
       <div class="alert-d" style="color: #a94442">
