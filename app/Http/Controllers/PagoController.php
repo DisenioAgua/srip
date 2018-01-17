@@ -97,4 +97,15 @@ class PagoController extends Controller
     {
         //
     }
+    public function validar($factura){
+      $v=Ventas::where('num_factura','=',$factura)->first();
+      $pp=Pago::where('ventas_id','=',$v->id)->get();
+      $acu=0;
+      foreach ($pp as $p) {
+      $acu+=$p->abono;
+      }
+      $t=$v->precio;
+      $resta=$t-$acu;
+      return $resta;
+    }
 }

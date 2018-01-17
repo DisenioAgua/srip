@@ -38,5 +38,16 @@ class Ventas extends Model
 
 
       }
+      public static function validar($id){
+        $pp=Pago::where('ventas_id','=',$id)->get();
+        $acu=0;
+        foreach ($pp as $p) {
+        $acu+=$p->abono;
+        }
+        $v=Ventas::find($id);
+        $t=$v->precio;
+        $resta=$t-$acu;
+        return $resta;
+      }
 
 }

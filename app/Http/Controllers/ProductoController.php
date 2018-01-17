@@ -159,5 +159,12 @@ class ProductoController extends Controller
         $productos->delete();
         return redirect('/productos');
     }
-    
+    public function index2(Request $request)
+    {
+        //
+        $nombre = $request->get('nombre');
+        $productos = Producto::buscar($nombre);
+        return view('Productos.stock',compact('productos'));
+    }
+
 }

@@ -83,7 +83,8 @@ class ActivoFijoController extends Controller
      */
     public function show($id)
     {
-        //
+      $activo = ActivoFijo::find($id);
+      return view('ActivoFijo.show',compact('activo'));
     }
 
     /**

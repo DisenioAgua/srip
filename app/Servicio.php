@@ -80,5 +80,23 @@ class Servicio extends Model
       }
       return true;
   }
+  public static function inventario($id){
+    $producto = Producto::find($id);
+    $compras = DetalleCompra::where('producto_id',$producto->id)->get();
+    $ingreso = 0;
+    foreach($compras as $cmp){
+      $ingreso += $cmp->cantidad;
+    }
+    $egreso = 0;
+    $venta= Ventas::get();
+    foreach($venta as $vtn){
+      $variables = DetalleServicio::where('servicio_id',$vtn->servicio_id)->where('producto_id',$producto->id)->get();
+      foreach($variables as $variable){
+        $egreso += $variable->cantidad;
+      }
+    }
+    $existen = $ingreso - $egreso;
+    return $existen;
+  }
 
 }

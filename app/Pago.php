@@ -20,4 +20,5 @@ class Pago extends Model
         $n= Ventas::find($id);
         return $n->nombre;
       }
+  
 }
