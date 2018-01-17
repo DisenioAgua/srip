@@ -2,34 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Listado de Clientes</title>
+    <title>Listado de Compras</title>
     <link rel="stylesheet" href="css/styleDOMPdf.css">
   </head>
   {{-- por aqui sepone la imagen como encabezado --}}
   <body>
-    <h1>Listado de Clientes</h1>
+    <h1>Listado de Compras</h1>
     <table>
       <thead>
         <tr>
           <th>#</th>
-          <th>Nombre</th>
-          <th>Dirección</th>
-          <th>Teléfono</th>
-          <th>Nit</th>
+          <th>Fecha</th>
+          <th>Factura</th>
+          <th>Proveedor</th>
         </tr>
       </thead>
       <tbody>
         @php
           $correlativo = 1;
         @endphp
-        @foreach($proveedores as $proveedor)
+        @foreach($compras as $compra)
         <tr>
           <td>{{$correlativo}}</td>
-          <td>{{$proveedor->nombre}}</td>
-          <td>{{$proveedor->direccion}}</td>
-          <td>{{$proveedor->telefono}}</td>
-          <td>{{$proveedor->nit}}</td>
-
+          <td>{{$compra->fecha_compra->format('d-m-Y')}}</td>
+          <td>{{$compra->num_factura}}</td>
+          <td>{{$compra->nombreProveedor($compra->proveedor_id)}}</td>
+        
         </tr>
         @php
           $correlativo++;

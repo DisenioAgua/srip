@@ -109,10 +109,10 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 <li><a><i class="fa fa-file-text"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href={!! asset('/reporteCliente')!!} target="_blank">Reporte de Clientes</a></li>
-                      <li><a href={!! asset('/reporteProveedor')!!} target="_blank">Reporte de Proveedores</a></li>
-                        <li><a href="form.html">Repote de Activo Fijo</a></li>
-                        <li><a href="form.html">Reporte de Venta</a></li>
-                        <li><a href="form.html">Reporte de Compra</a></li>
+                    <li><a href={!! asset('/reporteProveedor')!!} target="_blank">Reporte de Proveedores</a></li>
+                        <li><a href={!! asset('/reporteActivofijo')!!} target="_blank">Repote de Activo Fijo</a></li>
+                        <li><a href={!! asset('/reporteVenta')!!} target="_blank">Reporte de Venta</a></li>
+                        <li><a href={!! asset('/reporteCompra')!!} target="_blank">Reporte de Compra</a></li>
                   </ul>
                 </li>
               </ul>
