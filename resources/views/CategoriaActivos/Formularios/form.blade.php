@@ -68,6 +68,6 @@
 <center>
 {!!Form::submit('Guardar',['class'=>'btn btn-default'])!!}
 <button type="reset" name="button" class="btn btn-default">Limpiar</button>
-<a href={!! asset('/categoriasactivos')!!} class="btn btn-default">Cancelar</a>
+<a href={!! asset('/categoriaactivos')!!} class="btn btn-default">Cancelar</a>
 </center>
 </div>

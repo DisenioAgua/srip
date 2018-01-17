@@ -14,7 +14,7 @@ class ServicioRequest extends FormRequest
     public function authorize()
     {
         return true;
-    } 
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -26,6 +26,7 @@ class ServicioRequest extends FormRequest
         return [
           'nombre'=>'required | min:10 | max:20 | unique:servicios',
           'ganancia'=>'required | unique:servicios',
+          'tipo'=>'required',
         ];
     }
     public function messages(){
@@ -39,6 +40,7 @@ class ServicioRequest extends FormRequest
         'ganancia.required'=>'El campo ganancia es obligatorio',
         'ganancia.unique'=>'La ganancia ya ha sido registrada',
 
+        'tipo.required'=>'No ha agregado Productos',
       ];
     }
 }

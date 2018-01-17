@@ -1,5 +1,10 @@
 <div class="x_content">
   <div class="col-md-6">
+    @foreach ($errors->get('nombre') as  $error)
+      <div class="alert-d" style="color: #a94442">
+        <br>{{$error}}
+      </div>
+    @endforeach
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre:</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
@@ -7,6 +12,11 @@
         {!! Form::text('nombre',null,['class'=>'form-control has-feedback-left','placeholder'=>'Nombre del servicio'])!!}
       </div>
     </div>
+    @foreach ($errors->get('ganancia') as  $error)
+      <div class="alert-d" style="color: #a94442">
+        <br>{{$error}}
+      </div>
+    @endforeach
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Ganancia:</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
@@ -46,6 +56,11 @@
 
   </div>
   <div class="col-md-6">
+    @foreach ($errors->get('tipo') as  $error)
+      <div class="alert-d" style="color: #a94442">
+        <br>{{$error}}
+      </div>
+    @endforeach
     <table class="table table-striped" id='tabla2'>
       <thead>
         <tr>

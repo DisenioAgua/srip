@@ -9,6 +9,7 @@ use App\DetalleServicio;
 use App\ActivoFijo;
 use App\Producto;
 use App\Ventas;
+use Validator;
 
 class VentaController extends Controller
 {
@@ -48,7 +49,20 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
+      $validar= Validator::make($request->all(),[
+        'num_factura'=>'required| min:5 | max:7 | unique:ventas',
 
+      ],[
+        'num_factura.required'=>'El número de factura es obligatorio',
+        'num_factura.min'=>'El número de factura debe contener mínimo 5 caracteres',
+        'num_factura.max'=>'El número de factura debe contener máximo 7 caracteres',
+        'num_factura.unique'=>'El número de factura ya esta registrado',
+
+      ]
+    );
+    if ($validar->fails()) {
+      return redirect()->back()->withErrors($validar->errors());
+    } else {
 
 
       $cientes= Cliente::orderBy('nombre','asc')->get();
@@ -68,6 +82,7 @@ class VentaController extends Controller
 
       // Bitacora::bitacora("Registro de nueva compra n° de factura: " .$request->num_factura);
     }
+  }
 
 
     /**

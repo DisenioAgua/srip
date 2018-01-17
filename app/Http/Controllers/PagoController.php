@@ -30,10 +30,10 @@ class PagoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-
-        return view('pagos.create');
+         $nombre= $request->id;
+        return view('pagos.create', compact('nombre'));
     }
 
     /**
@@ -49,7 +49,7 @@ class PagoController extends Controller
      $pago->ventas_id = $venta->id;
      $pago->abono = $request->abono;
      $pago->save();
-      Bitacora::bitacora("Registro de nuevo pago: " .$request->nombre);
+      Bitacora::bitacora("Registro de nuevo pago: " .$venta->num_factura);
       return redirect('/pagos')->with('mensaje','Hecho');
     }
 

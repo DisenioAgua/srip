@@ -28,6 +28,8 @@ class ActivoFijoRequest extends FormRequest
           'precio'=>'required',
           'cantidad'=>'required',
           'categoria_id'=> 'integer|required|not_in:0',
+          'tipoactivo'=> 'required',
+          'precioalquiler'=> 'required',
         ];
     }
     public function messages(){

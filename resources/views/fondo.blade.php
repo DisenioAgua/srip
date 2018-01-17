@@ -123,7 +123,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
             <a data-toggle="tooltip" data-placement="top" title="Settings">
               <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Ayuda">
+            <a href={!! asset('/ayuda/ayuda.pdf')!!} target="_blank" data-toggle="tooltip" data-placement="top" title="Ayuda">
               <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="Principal" href={!! asset("/inicio")!!}>

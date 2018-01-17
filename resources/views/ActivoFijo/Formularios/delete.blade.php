@@ -24,9 +24,6 @@
       var dominio = window.location.host;
       $('#formulario').attr('action','http://'+dominio+'/srip/public/destroyActivoFijo/'+id);
       $('#formulario').submit();
-      swal('¡Hecho!',
-           'El registro se ha eliminado',
-            'success')
     }, function(dismiss){
       if(dismiss === 'cancel'){
         swal('Cancelado',

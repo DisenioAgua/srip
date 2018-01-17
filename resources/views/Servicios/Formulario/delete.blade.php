@@ -1,5 +1,5 @@
 {!!Form::open(['method'=>'POST','id'=>'formulario'])!!}
-<a href={!! asset('servicios/'.$servicio->id) !!} class='btn btn-xs btn-dark'><i class='fa fa-eye'></i></a>
+
 <a href={!! asset('/servicios/'.$servicio->id.'/edit')!!} class="btn btn-xs btn-primary">
 <i class="fa fa-edit"></i>
  </a>
@@ -24,9 +24,6 @@
       var dominio = window.location.host;
       $('#formulario').attr('action','http://'+dominio+'/srip/public/destroyServicio/'+id);
       $('#formulario').submit();
-      swal('¡Hecho!',
-           'El registro se ha eliminado',
-            'success')
     }, function(dismiss){
       if(dismiss === 'cancel'){
         swal('Cancelado',

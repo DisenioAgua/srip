@@ -115,9 +115,9 @@ class ActivoFijoController extends Controller
 
       $men['categoria_id.not_in']='Seleccione una opción válida';
 
-      $men['precio.required']='El campo Nombre es obligatorio';
+      $men['precio.required']='El campo Precio es obligatorio';
 
-      $men['cantidad.required']='El campo Nombre es obligatorio';
+     $men['precioalquiler.required']='El campo Precio de alquiler es obligatorio';
 
 
 
@@ -141,13 +141,14 @@ class ActivoFijoController extends Controller
       else {
           $validar['precio']='required';
       }
-      if ($activofijos['cantidad']==$request['cantidad']) {
-        $validar['cantidad']='required';
+      if ($activofijos['precioalquier']==$request['precioalquiler']) {
+        $validar['precioalquiler']='required';
         $v3=1;
       }
       else {
-          $validar['cantidad']='required';
+          $validar['precioalquiler']='required';
       }
+
          $validar['categoria_id']='integer|required|not_in:0';
       if ($v1==1 && $v2==1 && $v3==1) {
           return redirect('/activofijos')->with('mensaje','No hay cambios');
@@ -168,10 +169,14 @@ class ActivoFijoController extends Controller
      */
     public function destroy($id)
     {
-      $activofijos = ActivoFijo::findOrFail($id);
-      Bitacora::bitacora("Activo Fijo eliminado: ".$activofijos->nombre);
-      $activofijos->delete();
-      return redirect('/activofijos');
+      try{
+        $activofijos = ActivoFijo::findOrFail($id);
+        Bitacora::bitacora("Activo Fijo eliminado: ".$activofijos->nombre);
+        $activofijos->delete();
+        return redirect('/activofijos')->with('mensaje','Hecho');
+      }catch(\Exception $e){
+        return redirect('/activofijos')->with('error','No Puede ser eliminado');
+      }
     }
 
 }

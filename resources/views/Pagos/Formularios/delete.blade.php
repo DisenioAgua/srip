@@ -1,5 +1,10 @@
 {!!Form::open(['method'=>'POST','id'=>'formulario'])!!}
-<a href={!! asset('pagos/create') !!} class='btn btn-xs btn-dark'><i class='fa fa-dollar'></i></a>
+@if ($pago->validar($pago->id)==0)
+  <a href={!! asset('pagos/create') !!} class='btn btn-xs btn-dark' disabled><i class='fa fa-dollar'></i></a>
+@else
+  <a href={!! asset('pagos/create?id='.$pago->num_factura) !!} class='btn btn-xs btn-dark'><i class='fa fa-dollar'></i></a>
+@endif
+
 
 {!!Form::close()!!}
 <script type="text/javascript">

@@ -4,7 +4,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Factura:</label>
     <div class="col-md-9 col-sm-9 col-xs-12">
       <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-      {!! Form::text('factura',null,['class'=>'form-control has-feedback-left','id'=>'Ifactura','placeholder'=>'factura'])!!}
+      {!! Form::text('factura',$nombre,['class'=>'form-control has-feedback-left','id'=>'Ifactura','placeholder'=>'factura','readonly'=>'readonly'])!!}
     </div>
   </div>
   <div class="form-group">

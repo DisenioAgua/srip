@@ -8,8 +8,11 @@ $(document).ready(function(){
       type: "GET",
       url: "/srip/public/validar/"+ pfactura,
       success: function(respuesta){
-        if(respuesta > pabono){
+        if (parseFloat(respuesta) == parseFloat(pabono)) {
           pform.submit();
+        } else if(parseFloat(respuesta) > parseFloat(pabono)){
+          pform.submit();
+
         }
       },
     });

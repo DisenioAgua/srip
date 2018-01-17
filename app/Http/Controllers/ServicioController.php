@@ -44,7 +44,7 @@ class ServicioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServicioRequest $request)
     {
       $servicio_nuevo= Servicio::create($request->All());
       $contador=count($request->tipo);
@@ -99,7 +99,7 @@ class ServicioController extends Controller
      * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServicioRequest $request, $id)
     {
       $servicio_nuevo = Servicio::find($id);
       $servicio_nuevo->fill($request->all());
@@ -137,10 +137,14 @@ class ServicioController extends Controller
      */
     public function destroy($id)
     {
-      $servicios = Servicio::findOrFail($id);
-      Bitacora::bitacora("Servicio eliminada: " .$servicios->nombre);
-      $servicios->delete();
-      return redirect('/servicios');
+      try{
+        $servicios = Servicio::findOrFail($id);
+        Bitacora::bitacora("Servicio eliminada: " .$servicios->nombre);
+        $servicios->delete();
+        return redirect('/servicios')->with('mensaje','Hecho');
+      }catch(\Exception $e){
+        return redirect('/servicios')->with('error','No Puede ser eliminado');
+      }
     }
     public function buscarProducto($id){
       $var = Producto::where('nombre','ilike','%'.$id.'%')->take(2)->get();
