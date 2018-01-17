@@ -91,7 +91,11 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                       <li><a href={!! asset('/compras')!!}>Mostrar Compras</a></li>
                       </ul>
                   </li>
-                  <li><a href={!! asset('/productos')!!}><i class="fa fa-cubes"></i> Produto</span></a>
+                  <li><a><i class="fa fa-cubes"></i> Produto<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={!! asset('/productos/create')!!}>Producto</a></li>
+                      <li><a href={!! asset('verstock')!!}>Inventario</a></li>
+                      </ul>
                   </li>
                 </li>
                 <li><a><i class="fa fa-lock"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
@@ -105,7 +109,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 <li><a><i class="fa fa-file-text"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href={!! asset('/reporteCliente')!!} target="_blank">Reporte de Clientes</a></li>
-                      <li><a href="form.html">Reporte de Proveedores</a></li>
+                      <li><a href={!! asset('/reporteProveedor')!!} target="_blank">Reporte de Proveedores</a></li>
                         <li><a href="form.html">Repote de Activo Fijo</a></li>
                         <li><a href="form.html">Reporte de Venta</a></li>
                         <li><a href="form.html">Reporte de Compra</a></li>
