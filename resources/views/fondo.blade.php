@@ -95,7 +95,7 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                   </li>
                   <li><a><i class="fa fa-cubes"></i> Produto<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href={!! asset('/productos/create')!!}>Producto</a></li>
+                      <li><a href={!! asset('/productos')!!}>Producto</a></li>
                       <li><a href={!! asset('verstock')!!}>Inventario</a></li>
                       </ul>
                   </li>
