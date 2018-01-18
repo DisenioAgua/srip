@@ -8,7 +8,7 @@ function validarTelefono(obj, e,valor)
     if(tecla=='7' || tecla=='6' || tecla=='2'){
       aux=true;
     }
-  }else if(valor[0]==6 || valor[0]==7 || tecla=='2'){
+  }else if(valor[0]==6 || valor[0]==7 || valor[0]==2){
     if(val > 47 && val < 58){
       if(valor.length<4){
         aux=true;
