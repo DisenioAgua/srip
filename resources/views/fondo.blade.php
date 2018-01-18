@@ -74,8 +74,10 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                 </li>
                 <li><a href={!! asset('/proveedores')!!}><i class="fa fa-male"></i> Proveedores</span></a>
                 </li>
+                @if (Auth::user()->acceso==1)
                 <li><a href={!! asset('/users')!!}><i class="fa fa-suitcase"></i> Empleados</span></a>
                 </li>
+              @endif
                 <li><a href={!! asset('/activofijos')!!}><i class="fa fa-car"></i> Activo Fijo</span></a>
                 </li>
                 <li><a><i class="fa fa-dollar"></i> Ventas <span class="fa fa-chevron-down"></span></a>
@@ -98,14 +100,17 @@ echo "<script>swal('$men', 'Click al botón!', 'error')</script>";?>
                       </ul>
                   </li>
                 </li>
-                <li><a><i class="fa fa-lock"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href={!! asset('/bitacoras')!!}>Bitácora</a></li>
-                    <li><a href={!! asset('/bitacoras/create')!!}>imprimir bitácora</a></li>
-                      <li><a href="form.html">Respaldo de Base de Datos</a></li>
-                        <li><a href="form.html">Restauración de Base de Datos</a></li>
-                  </ul>
-                </li>
+                @if (Auth::user()->acceso==1)
+                  <li><a><i class="fa fa-lock"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={!! asset('/bitacoras')!!}>Bitácora</a></li>
+                      <li><a href={!! asset('/bitacoras/create')!!}>imprimir bitácora</a></li>
+                        <li><a href="form.html">Respaldo de Base de Datos</a></li>
+                          <li><a href="form.html">Restauración de Base de Datos</a></li>
+                    </ul>
+                  </li>
+                @endif
+
                 <li><a><i class="fa fa-file-text"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href={!! asset('/reporteCliente')!!} target="_blank">Reporte de Clientes</a></li>
