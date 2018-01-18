@@ -38,7 +38,6 @@ class ServicioRequest extends FormRequest
         'nombre.unique'=>'El Nombre ya ha sido registrado',
 
         'ganancia.required'=>'El campo ganancia es obligatorio',
-        'ganancia.unique'=>'La ganancia ya ha sido registrada',
 
         'tipo.required'=>'No ha agregado Productos',
       ];

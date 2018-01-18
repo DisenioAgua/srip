@@ -35,7 +35,7 @@
               <th>#</th>
               <th>Código</th>
               <th>Nombre</th>
-              <th>Categoria</th>
+              <th>Categoría</th>
               <th>Existencias</th>
               <th colspan="3">Opciones</th>
             </tr>

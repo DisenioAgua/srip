@@ -27,7 +27,7 @@
 
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
       <span class="fa fa-paste form-control-feedback left" aria-hidden="true"></span>
-      {!! Form::text('num_factura',null,['class'=>'form-control has-feedback-left','placeholder'=>'Numero de Factura'])!!}
+      {!! Form::text('num_factura',null,['class'=>'form-control has-feedback-left','placeholder'=>'Número de Factura'])!!}
     </div>
 
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
         <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
-        {!! Form::text('compra_id',null,['id'=>'lcodigo','class'=>'form-control has-feedback-left','placeholder'=>'Codigo'])!!}
+        {!! Form::text('compra_id',null,['id'=>'lcodigo','class'=>'form-control has-feedback-left','placeholder'=>'Código'])!!}
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
         <span class="fa fa-cubes form-control-feedback left" aria-hidden="true"></span>

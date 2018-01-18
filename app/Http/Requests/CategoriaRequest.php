@@ -34,15 +34,15 @@ class CategoriaRequest extends FormRequest
     public function messages(){
 
       return [
-        'nombre.required'=>'El campo Nombre es obligatorio',
-        'nombre.min'=>'El Nombre debe tener mínimo 4  caracteres',
-        'nombre.max'=>'El Nombre debe tener máximo 20  caracteres',
-        'nombre.unique'=>'El Nombre ya ha sido registrado',
+        'nombre.required'=>'El campo nombre es obligatorio',
+        'nombre.min'=>'El nombre debe tener mínimo 4  caracteres',
+        'nombre.max'=>'El nombre debe tener máximo 20  caracteres',
+        'nombre.unique'=>'El nombre ya ha sido registrado',
 
-        'descripcion.required'=>'El campo Descripción es obligatorio',
-        'descripcion.min'=>'La Descripción debe tener mínimo 10  caracteres',
-        'descripcion.max'=>'La Descripción debe tener máximo 35  caracteres',
-        'descripcion.unique'=>'La Descripción ya ha sido registrada',
+        'descripcion.required'=>'El campo descripción es obligatorio',
+        'descripcion.min'=>'La descripción debe tener mínimo 10  caracteres',
+        'descripcion.max'=>'La descripción debe tener máximo 35  caracteres',
+        'descripcion.unique'=>'La descripción ya ha sido registrada',
 
       ];
     }

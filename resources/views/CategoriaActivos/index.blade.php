@@ -4,7 +4,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Categoria de Activo Fijo</h2>
+        <h2>Categoría de Activo Fijo</h2>
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
@@ -37,7 +37,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Codigo</th>
+              <th>Código</th>
               <th>Nombre</th>
               <th>Tipo de Depreciación</th>
               <th colspan="2">Opciones</th>

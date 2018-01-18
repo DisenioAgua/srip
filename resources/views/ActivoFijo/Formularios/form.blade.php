@@ -85,7 +85,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Precio:</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
-        <span class="fa fa-sitemap form-control-feedback left" aria-hidden="true"></span>
+        <span class="fa fa-dollar form-control-feedback left" aria-hidden="true"></span>
         {!! Form::text('precio',null,['class'=>'form-control has-feedback-left','placeholder'=>'Precio'])!!}
       </div>
     </div>
@@ -110,7 +110,7 @@
       <div class="form-group">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Cantidad:</label>
         <div class="col-md-9 col-sm-9 col-xs-12">
-          <span class="fa fa-sitemap form-control-feedback left" aria-hidden="true"></span>
+          <span class="fa fa-plus-square form-control-feedback left" aria-hidden="true"></span>
           {!! Form::text('cantidad',null,['class'=>'form-control has-feedback-left','placeholder'=>' Cantidad'])!!}
         </div>
       </div>

@@ -35,15 +35,17 @@ class ActivoFijoRequest extends FormRequest
     public function messages(){
 
       return [
-        'nombre.required'=>'El campo Nombre es obligatorio',
-        'nombre.min'=>'El Nombre debe tener mínimo 4  caracteres',
-        'nombre.max'=>'El Nombre debe tener máximo 20  caracteres',
+        'nombre.required'=>'El campo nombre es obligatorio',
+        'nombre.min'=>'El nombre debe tener mínimo 4  caracteres',
+        'nombre.max'=>'El nombre debe tener máximo 20  caracteres',
 
         'categoria_id.not_in'=>'Seleccione una opción válida',
 
-        'precio.required'=>'El campo Nombre es obligatorio',
+        'precio.required'=>'El campo precio es obligatorio',
 
-        'cantidad.required'=>'El campo Nombre es obligatorio',
+        'tipoactivo.required'=>'El campo tipo de activo es obligatorio',
+
+        'cantidad.required'=>'El campo cantidad es obligatorio',
       ];
     }
 }

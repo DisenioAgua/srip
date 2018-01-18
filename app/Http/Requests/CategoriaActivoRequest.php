@@ -31,15 +31,15 @@ class CategoriaActivoRequest extends FormRequest
     public function messages(){
 
       return [
-        'codigo.required'=>'El campo Nombre es obligatorio',
-        'codigo.min'=>'El Nombre debe tener mínimo 4  caracteres',
-        'codigo.max'=>'El Nombre debe tener máximo 20  caracteres',
-        'codigo.unique'=>'El Nombre ya ha sido registrado',
+        'codigo.required'=>'El campo código es obligatorio',
+        'codigo.min'=>'El código debe tener mínimo 4  caracteres',
+        'codigo.max'=>'El código debe tener máximo 20  caracteres',
+        'codigo.unique'=>'El código ya ha sido registrado',
 
-        'nombre.required'=>'El campo Nombre es obligatorio',
-        'nombre.min'=>'El Nombre debe tener mínimo 4  caracteres',
-        'nombre.max'=>'El Nombre debe tener máximo 20  caracteres',
-        'nombre.unique'=>'El Nombre ya ha sido registrado',
+        'nombre.required'=>'El campo nombre es obligatorio',
+        'nombre.min'=>'El nombre debe tener mínimo 4  caracteres',
+        'nombre.max'=>'El nombre debe tener máximo 20  caracteres',
+        'nombre.unique'=>'El nombre ya ha sido registrado',
 
       ];
     }

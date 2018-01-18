@@ -34,7 +34,7 @@
             <tr>
               <th>#</th>
               <th>Nombre</th>
-              <th>Codigo</th>
+              <th>Código</th>
               <th>Fecha de compra</th>
               <th colspan="2">Opciones</th>
             </tr>

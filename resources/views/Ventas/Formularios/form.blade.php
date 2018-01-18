@@ -27,7 +27,7 @@
 
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
       <span class="fa fa-paste form-control-feedback left" aria-hidden="true"></span>
-      {!! Form::text('num_factura',null,['class'=>'form-control has-feedback-left','placeholder'=>'Numero de Factura'])!!}
+      {!! Form::text('num_factura',null,['class'=>'form-control has-feedback-left','placeholder'=>'Número de Factura'])!!}
     </div>
 
     <div class="col-md-4 col-sm-12 col-xs-12 form-group">
