@@ -26,7 +26,7 @@ class ClienteRequest extends FormRequest
         return [
           'nombre'=>'required | min:4 | max:20 | unique:clientes',
           'apellido'=>'required | min:4 | max:20 | unique:clientes',
-          'direccion'=>'required | min:10 | max:20 | unique:clientes',
+          'direccion'=>'required | min:6 | max:20 | unique:clientes',
           'telefono'=>'required | size:9 | unique:clientes',
           'dui'=> 'required | size:10 | unique:clientes',
         ];

@@ -27,7 +27,7 @@ class EmpleadoRequest extends FormRequest
           //
           'nombre'=>'required | min:4 | max:20',
           'apellido'=>'required | min:4 | max:20',
-          'direccion'=>'required | min:10 | max:20',
+          'direccion'=>'required | min:6 | max:20',
           'telefono'=>'required | size:9 | unique:users',
           'dui'=> 'required | size:10 | unique:users',
           'name'=> 'required | size:9 | unique:users',
@@ -40,21 +40,21 @@ class EmpleadoRequest extends FormRequest
     public function messages(){
 
       return [
-        'nombre.required'=>'El campo Nombre es obligatorio',
-        'nombre.min'=>'El Nombre debe tener al menos 4 caracteres',
-        'nombre.max'=>'El Nombre debe tener máximo 20 caracteres',
+        'nombre.required'=>'El campo nombre es obligatorio',
+        'nombre.min'=>'El nombre debe tener al menos 4 caracteres',
+        'nombre.max'=>'El nombre debe tener máximo 20 caracteres',
 
-        'apellido.required'=>'El campo Apellido es obligatorio',
-        'apellido.size'=>'El Apellido debe tener al menos 4 caracteres',
-        'apellido.size'=>'El Apellido debe tener máximo 20 caracteres',
+        'apellido.required'=>'El campo apellido es obligatorio',
+        'apellido.size'=>'El apellido debe tener al menos 4 caracteres',
+        'apellido.size'=>'El apellido debe tener máximo 20 caracteres',
 
         'direccion.required'=>'El campo dirección es obligatorio',
         'direccion.min'=>'La dirección debe tener al menos 10 caracteres',
         'direccion.max'=>'La dirección debe tener máximo 20 caracteres',
 
-        'telefono.required'=>'El campo Teléfono es obligatorio',
-        'telefono.size'=>'El campo Teléfono debe tener 9 caracteres',
-        'telefono.unique'=>'El campo Teléfono ya ha sido registrado',
+        'telefono.required'=>'El campo teléfono es obligatorio',
+        'telefono.size'=>'El campo teléfono debe tener 9 caracteres',
+        'telefono.unique'=>'El campo teléfono ya ha sido registrado',
 
         'dui.required'=>'El campo DUI es obligatorio',
         'dui.size'=>'El campo DUI debe tener 10 caracteres',
@@ -68,9 +68,9 @@ class EmpleadoRequest extends FormRequest
         'email.email'=>'El campo E-mail debe ser un correo',
         'email.unique'=>'El campo E-mail ya ha sido registrado',
 
-        'password.required_if'=>'El campo Contraseña es obligatorio',
-        'password.size'=>'El campo Contraseña debe tener 9 caracteres',
-        'password.confirmed'=>'Debe confirmar Contraseña',
+        'password.required_if'=>'El campo contraseña es obligatorio',
+        'password.size'=>'El campo contraseña debe tener 9 caracteres',
+        'password.confirmed'=>'Debe confirmar contraseña',
 
           'acceso.not_in'=>'Seleccione una opción válida',
 

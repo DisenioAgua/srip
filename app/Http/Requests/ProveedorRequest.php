@@ -26,7 +26,7 @@ class ProveedorRequest extends FormRequest
       return [
           //
           'nombre'=>'required | min:4 | max:20 | unique:proveedors',
-          'direccion'=>'required | min:10 | max:20 | unique:proveedors',
+          'direccion'=>'required | min:10 | max:20',
           'telefono'=>'required | size:9 | unique:proveedors',
           'nit'=> 'required | size:17 | unique:proveedors',
       ];
@@ -40,9 +40,9 @@ class ProveedorRequest extends FormRequest
         'nombre.unique'=>'Nombre ya ha sido registrado',
 
         'direccion.required'=>'El campo dirección es obligatorio',
-        'direccion.min'=>'La dirección debe tener minimo 10 caracteres',
+        'direccion.min'=>'La dirección debe tener minimo 6 caracteres',
         'direccion.max'=>'La dirección debe tener maximo 20 caracteres',
-        'direccion.unique'=>'La dirección ya ha sido registrado',
+
 
         'telefono.required'=>'El campo Teléfono es obligatorio',
         'telefono.size'=>'El campo Teléfono debe tener 9 caracteres',
